@@ -36,96 +36,21 @@ public record DescriptionToStats(Pattern descriptionPattern,
     public List<Stat> transform(String statSentence) {
         var matcher = descriptionPattern.matcher(statSentence);
         if (matcher.find()) {
+            var factor = description.first().equals("#|-1") || description.first().equals("-1") ? -1 : 1;
+            // There's no numeric value to find
+            if(matcher.groupCount() == 0) {
+                return idsLine.ids().stream()
+                        .map(id -> new Stat(id, factor))
+                        .toList();
+            }
             var values = IntStream.range(1, matcher.groupCount() + 1)
                     .mapToObj(matcher::group)
                     .toList();
             return IntStream.range(0, Math.min(values.size(), idsLine.ids().size()))
-                    .mapToObj(index -> new Stat(idsLine.ids().get(index), Integer.parseInt(values.get(index))))
+                    .mapToObj(index -> new Stat(idsLine.ids().get(index), factor * Integer.parseInt(values.get(index))))
                     .toList();
         } else {
             return List.of();
         }
     }
-
-    public static void main(String[] args) {
-        testOne();
-        testTwo();
-
-
-    }
-
-    private static void testOne() {
-        var specific = VALUE_PATTERNS
-                .stream()
-                .reduce("{0} to {1} Fire Damage per Endurance Charge", (acc, toReplace) -> acc.replace(toReplace, "([0-9]+)"), (a, b) -> a);
-
-        System.out.println(specific);
-        var meme = Pattern.compile(specific).matcher("1 to 3 Fire Damage per Endurance Charge");
-        System.out.println(meme.groupCount());
-        meme.find();
-        var values = IntStream.range(1, meme.groupCount() + 1)
-                .mapToObj(index -> meme.group(index))
-                .toList();
-
-        var stats = List.of(
-                "minimum_added_fire_damage_per_endurance_charge",
-                "maximum_added_fire_damage_per_endurance_charge"
-        );
-
-        var list = IntStream.range(0, Math.min(values.size(), stats.size()))
-                .mapToObj(index -> new Stat(stats.get(index), Integer.parseInt(values.get(index))))
-                .toList();
-
-        System.out.println(list);
-    }
-
-    private static void testTwo() {
-        var specific = VALUE_PATTERNS
-                .stream()
-                .reduce("{0:+d} to maximum number of Raised Zombies", (acc, toReplace) -> acc.replace(toReplace, "([0-9]+)"), (a, b) -> a);
-
-        System.out.println(specific);
-        var meme = Pattern.compile(specific).matcher("12 to maximum number of Raised Zombies");
-
-        meme.find();
-        var values = IntStream.range(1, meme.groupCount() + 1)
-                .mapToObj(index -> meme.group(index))
-                .toList();
-
-        var stats = List.of(
-                "base_number_of_zombies_allowed",
-                "quality_display_raise_zombie_is_gem"
-        );
-
-        var list = IntStream.range(0, Math.min(values.size(), stats.size()))
-                .mapToObj(index -> new Stat(stats.get(index), Integer.parseInt(values.get(index))))
-                .toList();
-
-        System.out.println(list);
-    }
-
-//    public List<Stat> transform(String sentence) {
-//        if (description.first().equals("# #")) {
-//
-//        } else {
-//            throw new UnsupportedOperationException(format("This description transformer is not supported", description.first()));
-//        }
-//    }
-
-    /*
-    {
-        "description": {
-            "first": "# #",
-            "second": "{0} to {1} Fire Damage per Endurance Charge",
-            "third": ""
-        },
-        "idsLine": {
-            "nbOfIds": 2,
-            "ids": [
-                "minimum_added_fire_damage_per_endurance_charge",
-                "maximum_added_fire_damage_per_endurance_charge"
-            ]
-        }
-    },
-     */
 }
