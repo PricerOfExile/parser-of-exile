@@ -8,9 +8,9 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class DescriptionToStatsTest {
+class StatDescriptionTest {
 
-    private DescriptionToStats descriptionToStats;
+    private StatDescription statDescription;
 
     @Nested
     class GivenOneHashtagDescription {
@@ -33,21 +33,21 @@ class DescriptionToStatsTest {
             },*/
             @BeforeEach
             void before() {
-                descriptionToStats = new DescriptionToStats(
-                        new StatDescriptionLine("#", "Cannot be Ignited", ""),
-                        new IdsLine(1, List.of("base_cannot_be_ignited"))
+                statDescription = new StatDescription(
+                        new Description("#", "Cannot be Ignited", ""),
+                        List.of("base_cannot_be_ignited")
                 );
             }
 
             @Test
             void thenValidSentenceWith10PercentReturnsFilledStat() {
-                assertThat(descriptionToStats.transform("Cannot be Ignited"))
-                        .contains(new Stat("base_cannot_be_ignited", 1));
+                assertThat(statDescription.transform("Cannot be Ignited"))
+                        .contains(new Stat("base_cannot_be_ignited", 1.));
             }
 
             @Test
             void thenNonValidSentenceWith10Percent() {
-                assertThat(descriptionToStats.transform("Cannot be NOT Ignited"))
+                assertThat(statDescription.transform("Cannot be NOT Ignited"))
                         .isEmpty();
             }
         }
@@ -71,21 +71,21 @@ class DescriptionToStatsTest {
 
             @BeforeEach
             void before() {
-                descriptionToStats = new DescriptionToStats(
-                        new StatDescriptionLine("#", "{0}% Chance to Block Attack Damage", ""),
-                        new IdsLine(1, List.of("monster_base_block_%"))
+                statDescription = new StatDescription(
+                        new Description("#", "{0}% Chance to Block Attack Damage", ""),
+                        List.of("monster_base_block_%")
                 );
             }
 
             @Test
             void thenValidSentenceWith10PercentReturnsFilledStat() {
-                assertThat(descriptionToStats.transform("+10% Chance to Block Attack Damage"))
-                        .contains(new Stat("monster_base_block_%", 10));
+                assertThat(statDescription.transform("+10% Chance to Block Attack Damage"))
+                        .contains(new Stat("monster_base_block_%", 10.));
             }
 
             @Test
             void thenNonValidSentenceWith10Percent() {
-                assertThat(descriptionToStats.transform("10% Another Sentence"))
+                assertThat(statDescription.transform("10% Another Sentence"))
                         .isEmpty();
             }
         }
@@ -111,21 +111,21 @@ class DescriptionToStatsTest {
 
             @BeforeEach
             void before() {
-                descriptionToStats = new DescriptionToStats(
-                        new StatDescriptionLine("#", "{0:+d} to Strength", ""),
-                        new IdsLine(1, List.of("additional_strength"))
+                statDescription = new StatDescription(
+                        new Description("#", "{0:+d} to Strength", ""),
+                        List.of("additional_strength")
                 );
             }
 
             @Test
             void thenValidSentenceWith10PercentReturnsFilledStat() {
-                assertThat(descriptionToStats.transform("+25 to Strength"))
-                        .contains(new Stat("additional_strength", 25));
+                assertThat(statDescription.transform("+25 to Strength"))
+                        .contains(new Stat("additional_strength", 25.));
             }
 
             @Test
             void thenNonValidSentenceWith10Percent() {
-                assertThat(descriptionToStats.transform("+5 to Another Sentence"))
+                assertThat(statDescription.transform("+5 to Another Sentence"))
                         .isEmpty();
             }
         }
@@ -150,16 +150,16 @@ class DescriptionToStatsTest {
          */
         @BeforeEach
         void before() {
-            descriptionToStats = new DescriptionToStats(
-                    new StatDescriptionLine("1", "You can apply one additional Curse", ""),
-                    new IdsLine(1, List.of("number_of_additional_curses_allowed"))
+            statDescription = new StatDescription(
+                    new Description("1", "You can apply one additional Curse", ""),
+                    List.of("number_of_additional_curses_allowed")
             );
         }
 
         @Test
         void thenValidSentenceReturnsFilledStat() {
-            assertThat(descriptionToStats.transform("You can apply one additional Curse"))
-                    .contains(new Stat("number_of_additional_curses_allowed", 1));
+            assertThat(statDescription.transform("You can apply one additional Curse"))
+                    .contains(new Stat("number_of_additional_curses_allowed", 1.));
         }
     }
 
@@ -183,21 +183,21 @@ class DescriptionToStatsTest {
          */
         @BeforeEach
         void before() {
-            descriptionToStats = new DescriptionToStats(
-                    new StatDescriptionLine("-1", "You can apply one fewer Curse", ""),
-                    new IdsLine(1, List.of("number_of_additional_curses_allowed"))
+            statDescription = new StatDescription(
+                    new Description("-1", "You can apply one fewer Curse", ""),
+                    List.of("number_of_additional_curses_allowed")
             );
         }
 
         @Test
         void thenValidSentenceReturnsFilledStat() {
-            assertThat(descriptionToStats.transform("You can apply one fewer Curse"))
-                    .contains(new Stat("number_of_additional_curses_allowed", -1));
+            assertThat(statDescription.transform("You can apply one fewer Curse"))
+                    .contains(new Stat("number_of_additional_curses_allowed", -1.));
         }
 
         @Test
         void thenNonValidSentence() {
-            assertThat(descriptionToStats.transform("You can apply one additional Curse"))
+            assertThat(statDescription.transform("You can apply one additional Curse"))
                     .isEmpty();
         }
 
@@ -227,21 +227,21 @@ class DescriptionToStatsTest {
 
             @BeforeEach
             void before() {
-                descriptionToStats = new DescriptionToStats(
-                        new StatDescriptionLine("1|#", "{0}% increased Chaos Damage", ""),
-                        new IdsLine(1, List.of("chaos_damage_+%"))
+                statDescription = new StatDescription(
+                        new Description("1|#", "{0}% increased Chaos Damage", ""),
+                        List.of("chaos_damage_+%")
                 );
             }
 
             @Test
             void thenValidSentenceReturnsFilledStat() {
-                assertThat(descriptionToStats.transform("62% increased Chaos Damage"))
-                        .contains(new Stat("chaos_damage_+%", 62));
+                assertThat(statDescription.transform("62% increased Chaos Damage"))
+                        .contains(new Stat("chaos_damage_+%", 62.));
             }
 
             @Test
             void thenNonValidSentenceWith10Percent() {
-                assertThat(descriptionToStats.transform("62% reduced Chaos Damage"))
+                assertThat(statDescription.transform("62% reduced Chaos Damage"))
                         .isEmpty();
             }
         }
@@ -267,21 +267,21 @@ class DescriptionToStatsTest {
 
             @BeforeEach
             void before() {
-                descriptionToStats = new DescriptionToStats(
-                        new StatDescriptionLine("#|-1", "{0}% reduced Chaos Damage", "negate 1"),
-                        new IdsLine(1, List.of("chaos_damage_+%"))
+                statDescription = new StatDescription(
+                        new Description("#|-1", "{0}% reduced Chaos Damage", "negate 1"),
+                        List.of("chaos_damage_+%")
                 );
             }
 
             @Test
             void thenValidSentenceReturnsFilledStat() {
-                assertThat(descriptionToStats.transform("62% reduced Chaos Damage"))
-                        .contains(new Stat("chaos_damage_+%", -62));
+                assertThat(statDescription.transform("62% reduced Chaos Damage"))
+                        .contains(new Stat("chaos_damage_+%", -62.));
             }
 
             @Test
             void thenNonValidSentenceWith10Percent() {
-                assertThat(descriptionToStats.transform("62% increased Chaos Damage"))
+                assertThat(statDescription.transform("62% increased Chaos Damage"))
                         .isEmpty();
             }
         }
@@ -308,16 +308,16 @@ class DescriptionToStatsTest {
 
         @BeforeEach
         void before() {
-            descriptionToStats = new DescriptionToStats(
-                    new StatDescriptionLine("2|#", "You can apply {0} additional Curses", "canonical_line"),
-                    new IdsLine(1, List.of("number_of_additional_curses_allowed"))
+            statDescription = new StatDescription(
+                    new Description("2|#", "You can apply {0} additional Curses", "canonical_line"),
+                    List.of("number_of_additional_curses_allowed")
             );
         }
 
         @Test
         void thenValidSentenceReturnsFilledStat() {
-            assertThat(descriptionToStats.transform("You can apply 7 additional Curses"))
-                    .contains(new Stat("number_of_additional_curses_allowed", 7));
+            assertThat(statDescription.transform("You can apply 7 additional Curses"))
+                    .contains(new Stat("number_of_additional_curses_allowed", 7.));
         }
     }
 
@@ -346,17 +346,17 @@ class DescriptionToStatsTest {
 
             @BeforeEach
             void before() {
-                descriptionToStats = new DescriptionToStats(
-                        new StatDescriptionLine("# #", "{0} to {1} Added Cold Damage per Frenzy Charge", ""),
-                        new IdsLine(1, List.of("minimum_added_cold_damage_per_frenzy_charge", "maximum_added_cold_damage_per_frenzy_charge"))
+                statDescription = new StatDescription(
+                        new Description("# #", "{0} to {1} Added Cold Damage per Frenzy Charge", ""),
+                        List.of("minimum_added_cold_damage_per_frenzy_charge", "maximum_added_cold_damage_per_frenzy_charge")
                 );
             }
 
             @Test
             void thenValidSentenceReturnsFilledStat() {
-                assertThat(descriptionToStats.transform("5 to 18 Added Cold Damage per Frenzy Charge"))
-                        .contains(new Stat("minimum_added_cold_damage_per_frenzy_charge", 5))
-                        .contains(new Stat("maximum_added_cold_damage_per_frenzy_charge", 18));
+                assertThat(statDescription.transform("5 to 18 Added Cold Damage per Frenzy Charge"))
+                        .contains(new Stat("minimum_added_cold_damage_per_frenzy_charge", 5.))
+                        .contains(new Stat("maximum_added_cold_damage_per_frenzy_charge", 18.));
             }
         }
     }

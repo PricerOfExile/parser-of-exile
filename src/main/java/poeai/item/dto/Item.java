@@ -3,6 +3,8 @@ package poeai.item.dto;
 import lombok.Builder;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 @Builder(toBuilder = true)
 public record Item(String id,
@@ -32,8 +34,19 @@ public record Item(String id,
         return extended.category().equals("accessories");
     }
 
+    public boolean isNotTrinket() {
+        return !extended.hasSubCategory("trinket");
+    }
+
     public boolean isNotUnique() {
         return !rarity.equals("Unique");
+    }
+
+    public List<String> mods() {
+        return Stream.of(implicitMods, explicitMods, enchantMods, craftedMods, fracturedMods, veiledMods)
+                .filter(Objects::nonNull)
+                .flatMap(List::stream)
+                .toList();
     }
 
     public boolean hasNoteStartingWithTilde() {

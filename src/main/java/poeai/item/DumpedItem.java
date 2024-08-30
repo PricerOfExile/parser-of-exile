@@ -23,10 +23,11 @@ public record DumpedItem(String id,
                          boolean split,
                          boolean corrupted,
                          Qualities qualities,
+                         List<String> mods,
                          List<Stat> stats) {
 
     public DumpedItem(EnrichedItem item,
-                      List<StatDto> statDtos) {
+                      List<Stat> stats) {
         this(
                 item.id(),
                 item.item().rarity(),
@@ -49,10 +50,8 @@ public record DumpedItem(String id,
                 new Qualities(
                         20, 0, 0,0,0,0,0,0,0,0
                 ),
-                statDtos.stream()
-                        .map(dto -> new Stat(dto.id(), 0))
-                        .sorted(Comparator.comparing(Stat::id))
-                        .toList()
+                item.item().explicitMods(),
+                stats
         );
     }
 }

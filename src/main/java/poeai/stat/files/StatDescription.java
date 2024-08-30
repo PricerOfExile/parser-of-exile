@@ -1,49 +1,52 @@
 package poeai.stat.files;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
-public record StatDescription(IdsLine idsLine,
-                              int nbOfText,
-                              List<StatDescriptionLine> texts) {
+import static java.lang.String.format;
 
-    public List<DescriptionToStats> reverse() {
-        return texts.stream()
-                .map(line -> new DescriptionToStats(line, idsLine))
-                .toList();
+public record StatDescription(Pattern descriptionPattern,
+                              Description description,
+                              List<String> statIds) {
+
+    private static final List<String> VALUE_PATTERNS = List.of("{}", "{0}", "{0}", "{1}", "{0:+d}", "{0:d}");
+
+    public StatDescription(Description description,
+                           List<String> statIds) {
+        this(computeDescriptionPattern(description), description, statIds);
     }
 
-    public static StatDescription.Builder builder() {
-        return new Builder();
+    private static Pattern computeDescriptionPattern(Description description) {
+        var withEscapedPlus = description.displayPattern().replace("+{", "\\+{");
+        var rawPattern = VALUE_PATTERNS
+                .stream()
+                .reduce(
+                        withEscapedPlus,
+                        (acc, toReplace) -> acc.replace(toReplace, "([+-]?[.0-9]+)"),
+                        (a, b) -> a
+                );
+        return java.util.regex.Pattern.compile(format("^%s$", rawPattern));
     }
 
-    public static class Builder {
-
-        private IdsLine idsLine;
-        private Integer nbOfText;
-        private List<StatDescriptionLine> texts = new ArrayList<>();
-
-        public Builder idsLine(IdsLine idsLine) {
-            this.idsLine = idsLine;
-            return this;
-        }
-
-        public Builder nbOfText(int nbOfText) {
-            this.nbOfText = nbOfText;
-            return this;
-        }
-
-        public Builder addText(StatDescriptionLine substring) {
-            texts.add(substring);
-            return this;
-        }
-
-        public boolean hasEnoughText() {
-            return nbOfText.equals(texts.size());
-        }
-
-        public StatDescription build() {
-            return new StatDescription(idsLine, nbOfText, texts);
+    public List<Stat> transform(String statSentence) {
+        var matcher = descriptionPattern.matcher(statSentence);
+        if (matcher.find()) {
+            var factor = description.pattern().equals("#|-1") || description.pattern().equals("-1") ? -1. : 1.;
+            // There's no numeric value to find
+            if (matcher.groupCount() == 0) {
+                return statIds.stream()
+                        .map(id -> new Stat(id, factor))
+                        .toList();
+            }
+            var values = IntStream.range(1, matcher.groupCount() + 1)
+                    .mapToObj(matcher::group)
+                    .toList();
+            return IntStream.range(0, Math.min(values.size(), statIds.size()))
+                    .mapToObj(index -> new Stat(statIds.get(index), factor * Double.parseDouble(values.get(index))))
+                    .toList();
+        } else {
+            return List.of();
         }
     }
 }

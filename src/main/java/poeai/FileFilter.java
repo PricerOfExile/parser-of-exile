@@ -8,20 +8,24 @@ import poeai.item.DumpedItem;
 import poeai.item.EnrichedItem;
 import poeai.item.dto.PublicStash;
 import poeai.item.dto.PublicStashes;
+import poeai.stat.StatDescriptionLoader;
+import poeai.stat.StatDtoFilteringService;
+import poeai.stat.files.Stat;
+import poeai.stat.files.StatDescriptionBlocksLoader;
 import poeai.stat.tables.English.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileFilter {
 
     public static void main(String[] args) throws IOException {
+        // Note : should we integrate any Container manager at some point ?
 
         var objectMapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -41,31 +45,19 @@ public class FileFilter {
         var tagsFile = TagDtoRepository.class.getResourceAsStream("Tags.json");
         var tagDtoRepository = new TagDtoRepository(objectMapper.readValue(tagsFile, listTagDtoType));
 
+        var statDtoFilteringService = new StatDtoFilteringService(modDtoRepository, tagDtoRepository, statDtoRepository);
 
-        var accessoryTags = tagDtoRepository.findAllAccessoryTags();
 
-        var genericAndAccessoryTags = Stream.of(
-                tagDtoRepository.findAllGenericTags(),
-                accessoryTags
-        ).flatMap(List::stream).toList();
+        var statDescriptionLoader = new StatDescriptionLoader(new StatDescriptionBlocksLoader(), statDtoFilteringService);
 
-        var modDtos = modDtoRepository.findAllNonUniqueAndEquipmentRelated().stream()
-                .filter(modDto -> modDto.canBeCraftedOn(accessoryTags) || modDto.canSpawnOn(genericAndAccessoryTags))
+        statDescriptionLoader.findStatsFor("+45% to Fire Resistance")
+                .stream().forEach(System.out::println);
+
+        var statDtos = statDtoFilteringService.findAllNonUniqueAndAccessoryRelated();
+
+        var defaultStats = statDtos.stream()
+                .map(statDto -> new Stat(statDto.id(), 0.))
                 .toList();
-        System.out.printf("%d mods%n", modDtos.size());
-        modDtos.stream()
-                .forEach(System.out::println);
-
-        var statIndexes = modDtos.stream()
-                .map(ModDto::statIndexes)
-                .flatMap(Set::stream)
-                .collect(Collectors.toSet());
-        System.out.printf("%d stat indexes%n", statIndexes.size());
-
-        var statDtos = statIndexes.stream()
-                .map(statDtoRepository::getByIndex)
-                .toList();
-        System.out.printf("%d stat dtos%n", statDtos.size());
 
         var folder = Paths.get("/Users/mtintinger/dev/ahah/samples-dump-1000");
         Files.createDirectories(folder);
@@ -79,14 +71,33 @@ public class FileFilter {
                     .filter(PublicStash::isNecropolisLeague)
                     .flatMap(PublicStash::itemStream)
                     .filter(EnrichedItem::isAccessories)
+                    .filter(EnrichedItem::isNotTrinket)
                     .filter(EnrichedItem::isNotUnique)
                     .filter(EnrichedItem::identified)
                     .filter(EnrichedItem::hasPrice)
-                    .map(item -> new DumpedItem(item, statDtos))
-                    .limit(1000);
+                    .map(item -> {
+                        var computedStats = item.item().mods().stream()
+                                .map(statDescriptionLoader::findStatsFor)
+                                .flatMap(List::stream)
+                                .toList();
+                        var collected = Stream.concat(defaultStats.stream(), computedStats.stream())
+                                .collect(
+                                        Collectors.collectingAndThen(Collectors.groupingBy(
+                                                        Stat::id,
+                                                        Collectors.reducing(0., Stat::value, Double::sum)
+                                                ), map -> map.entrySet().stream().map(entry -> new Stat(entry.getKey(), entry.getValue())).sorted(Comparator.comparing(Stat::id)).toList()
+                                        )
+                                );
+                        return new DumpedItem(item, collected);
+                    })
+                    .limit(50000)
+                    ;
+
             itemStream.forEach(item -> writeToNewFile(item, folder));
+            // System.out.println(itemStream.count());
         }
         System.out.println(System.currentTimeMillis() - begin);
+
     }
 
     private static void writeToNewFile(DumpedItem item, Path folder) {

@@ -16,9 +16,9 @@ public class TagDtoRepository {
                 .toList();
     }
 
-    public List<TagDto> findAllGenericTags() {
+    public List<TagDto> findAllGenericAndAccessoryTags() {
         return tagDtos.stream()
-                .filter(TagDto::isGenericTag)
+                .filter(tagDto -> tagDto.isGenericTag() || tagDto.isAccessoryTag())
                 .toList();
     }
 }

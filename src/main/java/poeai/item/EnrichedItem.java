@@ -25,4 +25,8 @@ public record EnrichedItem(String stashId,
     public boolean hasPrice() {
         return price != null;
     }
+
+    public boolean isNotTrinket() {
+        return item.isNotTrinket();
+    }
 }
