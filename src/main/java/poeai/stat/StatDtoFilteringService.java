@@ -1,35 +1,39 @@
 package poeai.stat;
 
-import poeai.stat.tables.English.*;
+import poeai.gamedata.mod.Mod;
+import poeai.gamedata.mod.ModRepository;
+import poeai.gamedata.stat.Stat;
+import poeai.gamedata.stat.StatRepository;
+import poeai.gamedata.tag.TagRepository;
 
 import java.util.List;
 import java.util.Set;
 
 public class StatDtoFilteringService {
 
-    private final ModDtoRepository modDtoRepository;
+    private final ModRepository modRepository;
 
-    private final TagDtoRepository tagDtoRepository;
+    private final TagRepository tagRepository;
 
-    private final StatDtoRepository statDtoRepository;
+    private final StatRepository statRepository;
 
-    public StatDtoFilteringService(ModDtoRepository modDtoRepository,
-                                   TagDtoRepository tagDtoRepository,
-                                   StatDtoRepository statDtoRepository) {
-        this.modDtoRepository = modDtoRepository;
-        this.tagDtoRepository = tagDtoRepository;
-        this.statDtoRepository = statDtoRepository;
+    public StatDtoFilteringService(ModRepository modRepository,
+                                   TagRepository tagRepository,
+                                   StatRepository statRepository) {
+        this.modRepository = modRepository;
+        this.tagRepository = tagRepository;
+        this.statRepository = statRepository;
     }
 
-    public List<StatDto> findAllNonUniqueAndAccessoryRelated() {
-        var accessoryTags = tagDtoRepository.findAllAccessoryTags();
-        var genericAndAccessoryTags = tagDtoRepository.findAllGenericAndAccessoryTags();
-        return modDtoRepository.findAllNonUniqueAndEquipmentRelated().stream()
-                .filter(modDto -> modDto.canBeCraftedOn(accessoryTags) || modDto.canSpawnOn(genericAndAccessoryTags))
-                .map(ModDto::statIndexes)
+    public List<Stat> findAllNonUniqueAndAccessoryRelated() {
+        var accessoryTags = tagRepository.findAllAccessoryTags();
+        var genericAndAccessoryTags = tagRepository.findAllGenericAndAccessoryTags();
+        return modRepository.findAllNonUniqueAndEquipmentRelated().stream()
+                .filter(mod -> mod.canBeCraftedOn(accessoryTags) || mod.canSpawnOn(genericAndAccessoryTags))
+                .map(Mod::statIndexes)
                 .flatMap(Set::stream)
                 .distinct()
-                .map(statDtoRepository::getByIndex)
+                .map(statRepository::getByIndex)
                 .toList();
     }
 }

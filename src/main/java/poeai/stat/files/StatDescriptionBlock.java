@@ -1,6 +1,6 @@
 package poeai.stat.files;
 
-import poeai.stat.tables.English.StatDto;
+import poeai.gamedata.stat.Stat;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,8 +18,8 @@ public class StatDescriptionBlock {
         this.descriptions = descriptions;
     }
 
-    public boolean isLinkedToAny(List<StatDto> statDtos) {
-        return !Collections.disjoint(statIds, statDtos.stream().map(StatDto::id).toList());
+    public boolean isLinkedToAny(List<Stat> stats) {
+        return !Collections.disjoint(statIds, stats.stream().map(Stat::id).toList());
     }
 
     public List<StatDescription> split() {

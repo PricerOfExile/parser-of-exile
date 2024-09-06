@@ -6,36 +6,51 @@ import org.assertj.core.api.AbstractThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.FieldSource;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.ResourcePatternUtils;
 import poeai.currency.dto.CurrenciesDto;
 import poeai.currency.dto.CurrencyDetailDto;
 import poeai.currency.dto.CurrencyRateDto;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class CurrencyRepositoryTest {
 
-    private static final Integer EXALT_ID = 12;
+    private static final Integer EXALT_INDEX = 12;
 
     private static final String EXALT_TRADE_ID = "exalted";
 
     private static final String CHAOS_TRADE_ID = "chaos";
 
     private CurrencyRepository currencyRepository;
+    @Mock
+    private Resource firstResource;
+    @Mock
+    private Resource secondResource;
+    @Mock
+    private ObjectMapper objectMapper;
 
     @Nested
     class GivenNoCurrenciesDto {
 
         @BeforeEach
         void before() {
-            currencyRepository = new CurrencyRepository(List.of());
+            currencyRepository = new CurrencyRepository(List.of(), objectMapper);
         }
 
         @Test
@@ -53,21 +68,23 @@ class CurrencyRepositoryTest {
     }
 
     @Nested
-    class GivenCurrency_exalt_WithoutTradeId {
+    class GivenCurrencyDetail_WithoutTradeId {
 
         private CurrenciesDto currenciesDto;
 
         @BeforeEach
-        void before() {
+        void before() throws IOException {
             currenciesDto = mock(CurrenciesDto.class);
             var currencyDetailDto = mock(CurrencyDetailDto.class);
-            when(currenciesDto.currencyDetails())
-                    .thenReturn(List.of(currencyDetailDto));
-            currencyRepository = new CurrencyRepository(List.of(currenciesDto));
+            when(currenciesDto.detailsStream())
+                    .thenReturn(Stream.of(currencyDetailDto));
+            when(objectMapper.readValue(nullable(File.class), eq(CurrenciesDto.class)))
+                    .thenReturn(currenciesDto);
+            currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
         }
 
         @Nested
-        class WhenFindBy_exalt {
+        class WhenFindBy {
 
             private AbstractThrowableAssert<?, ? extends Throwable> call;
 
@@ -81,11 +98,6 @@ class CurrencyRepositoryTest {
                 call.isInstanceOf(NoSuchElementException.class)
                         .hasMessage("Currency [exalted] Not Found");
             }
-
-            @Test
-            void thenFindRateByTradeIdIsNeverCalled() {
-                verify(currenciesDto, never()).findRateByTradeId(anyInt());
-            }
         }
     }
 
@@ -94,18 +106,18 @@ class CurrencyRepositoryTest {
 
         private CurrenciesDto currenciesDto;
 
+        private CurrencyDetailDto exaltedCurrencyDetail;
+
         @BeforeEach
         void before() {
             currenciesDto = mock(CurrenciesDto.class);
-            var currencyDetailDto = mock(CurrencyDetailDto.class);
-            when(currencyDetailDto.tradeId())
-                    .thenReturn(EXALT_TRADE_ID);
-            when(currencyDetailDto.hasTradeId())
+            exaltedCurrencyDetail = mock(CurrencyDetailDto.class);
+            when(exaltedCurrencyDetail.hasTradeId())
                     .thenReturn(true);
-            when(currencyDetailDto.id())
-                    .thenReturn(EXALT_ID);
+            when(exaltedCurrencyDetail.id())
+                    .thenReturn(EXALT_INDEX);
             when(currenciesDto.detailsStream())
-                    .thenReturn(Stream.of(currencyDetailDto));
+                    .thenReturn(Stream.of(exaltedCurrencyDetail));
         }
 
         @Nested
@@ -117,8 +129,10 @@ class CurrencyRepositoryTest {
                 private AbstractThrowableAssert<?, ? extends Throwable> call;
 
                 @BeforeEach
-                void before() {
-                    currencyRepository = new CurrencyRepository(List.of(currenciesDto));
+                void before() throws IOException {
+                    when(objectMapper.readValue(nullable(File.class), eq(CurrenciesDto.class)))
+                            .thenReturn(currenciesDto);
+                    currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
                     call = assertThatThrownBy(() -> currencyRepository.findById(EXALT_TRADE_ID));
                 }
 
@@ -134,14 +148,20 @@ class CurrencyRepositoryTest {
         class GivenRateFor_exalted_InSameDto {
 
             @BeforeEach
-            void before() {
+            void before() throws IOException {
+                when(exaltedCurrencyDetail.tradeId())
+                        .thenReturn(EXALT_TRADE_ID);
+
                 var currencyRateDto = mock(CurrencyRateDto.class);
                 when(currencyRateDto.chaosEquivalent())
                         .thenReturn(325.5);
-                when(currenciesDto.findRateByTradeId(EXALT_ID))
-                        .thenReturn(Optional.of(currencyRateDto));
-
-                currencyRepository = new CurrencyRepository(List.of(currenciesDto));
+                when(currencyRateDto.index())
+                        .thenReturn(EXALT_INDEX);
+                when(currenciesDto.lines())
+                        .thenReturn(List.of(currencyRateDto));
+                when(objectMapper.readValue(nullable(File.class), eq(CurrenciesDto.class)))
+                        .thenReturn(currenciesDto);
+                currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
             }
 
             @Test
@@ -161,18 +181,24 @@ class CurrencyRepositoryTest {
         class GivenRateFor_exalted_InOtherDto {
 
             @BeforeEach
-            void before() {
+            void before() throws IOException {
+                when(exaltedCurrencyDetail.tradeId())
+                        .thenReturn(EXALT_TRADE_ID);
+
                 var currencyRateDto = mock(CurrencyRateDto.class);
                 when(currencyRateDto.chaosEquivalent())
                         .thenReturn(325.5);
+                when(currencyRateDto.index())
+                        .thenReturn(EXALT_INDEX);
 
-                var otherDto = mock(CurrenciesDto.class);
-                when(otherDto.currencyDetails())
-                        .thenReturn(List.of());
-                when(otherDto.findRateByTradeId(EXALT_ID))
-                        .thenReturn(Optional.of(currencyRateDto));
+                var otherCurrenciesDto = mock(CurrenciesDto.class);
+                when(otherCurrenciesDto.lines())
+                        .thenReturn(List.of(currencyRateDto));
 
-                currencyRepository = new CurrencyRepository(List.of(currenciesDto, otherDto));
+                when(objectMapper.readValue(nullable(File.class), eq(CurrenciesDto.class)))
+                        .thenReturn(currenciesDto, otherCurrenciesDto);
+
+                currencyRepository = new CurrencyRepository(List.of(firstResource, secondResource), objectMapper);
             }
 
             @Test
@@ -192,7 +218,7 @@ class CurrencyRepositoryTest {
     @Nested
     class IntegrationTest {
 
-        private static final List<String> MOST_USED_CURRENCIES = List.of(
+        private static final List<String> MOST_USED_CURRENCY_TRADE_IDS = List.of(
                 "chaos",
                 "exalted",
                 "divine",
@@ -206,33 +232,23 @@ class CurrencyRepositoryTest {
                 "jewellers"
         );
 
-        private CurrenciesDto currenciesDto;
-
-        private CurrenciesDto fragmentsDto;
-
         private CurrencyRepository repository;
 
         @BeforeEach
         void before() throws IOException {
             var objectMapper = new ObjectMapper()
                     .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            currenciesDto = objectMapper.readValue(getClass().getResourceAsStream("currencies.json"), CurrenciesDto.class);
-            fragmentsDto = objectMapper.readValue(getClass().getResourceAsStream("fragments.json"), CurrenciesDto.class);
-            repository = new CurrencyRepository(List.of(
-                    currenciesDto,
-                    fragmentsDto
-            ));
+            var resources = Stream.of(ResourcePatternUtils.getResourcePatternResolver(new DefaultResourceLoader())
+                            .getResources("classpath:/poe.ninja/*.json"))
+                    .toList();
+            repository = new CurrencyRepository(resources, objectMapper);
         }
 
-        @Test
-        void thenMostUsedCurrenciesAreFound() {
-            assertThat(currenciesDto.currencyDetails())
-                    .filteredOn(CurrencyDetailDto::hasTradeId)
-                    .filteredOn(currencyDetailDto -> MOST_USED_CURRENCIES.contains(currencyDetailDto.tradeId()))
-                    .allSatisfy(dto ->
-                            assertThat(repository.findById(dto.tradeId()))
-                                    .isNotNull()
-                    );
+        @ParameterizedTest
+        @FieldSource(value = "poeai.currency.CurrencyRepositoryTest$IntegrationTest#MOST_USED_CURRENCY_TRADE_IDS")
+        void thenMostUsedCurrenciesAreFound(String currencyTradeId) {
+            assertThat(repository.findById(currencyTradeId))
+                    .isNotNull();
         }
 
         @Test

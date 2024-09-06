@@ -1,6 +1,6 @@
 package poeai.stat.files;
 
-import poeai.stat.tables.English.StatDto;
+import poeai.gamedata.stat.Stat;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -24,9 +24,9 @@ public class StatDescriptionBlocksLoader {
         this.statDescriptionBlocks = gatherer.descriptionBlocks;
     }
 
-    public List<StatDescriptionBlock> findAllLinkedTo(List<StatDto> statDtos) {
+    public List<StatDescriptionBlock> findAllLinkedTo(List<Stat> stats) {
         return statDescriptionBlocks.stream()
-                .filter(statDescriptionBlock -> statDescriptionBlock.isLinkedToAny(statDtos))
+                .filter(statDescriptionBlock -> statDescriptionBlock.isLinkedToAny(stats))
                 .toList();
     }
 

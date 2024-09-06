@@ -3,9 +3,7 @@ package poeai.item;
 import poeai.item.dto.Influences;
 import poeai.item.dto.ItemSocket;
 import poeai.stat.files.Stat;
-import poeai.stat.tables.English.StatDto;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 

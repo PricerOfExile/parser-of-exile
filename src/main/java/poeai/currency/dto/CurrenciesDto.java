@@ -13,7 +13,7 @@ public record CurrenciesDto(List<CurrencyRateDto> lines,
 
     public Optional<CurrencyRateDto> findRateByTradeId(Integer currencyId) {
         return lines.stream()
-                .filter(rateDto -> currencyId.equals(rateDto.receive().get_currency_id()))
+                .filter(rateDto -> currencyId.equals(rateDto.index()))
                 .findFirst();
     }
 }

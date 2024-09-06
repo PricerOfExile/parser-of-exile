@@ -1,9 +1,12 @@
 package poeai;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.springframework.core.io.ClassPathResource;
+import poeai.gamedata.mod.ModRepository;
+import poeai.gamedata.stat.StatRepository;
+import poeai.gamedata.tag.TagRepository;
 import poeai.item.DumpedItem;
 import poeai.item.EnrichedItem;
 import poeai.item.dto.PublicStash;
@@ -12,13 +15,13 @@ import poeai.stat.StatDescriptionLoader;
 import poeai.stat.StatDtoFilteringService;
 import poeai.stat.files.Stat;
 import poeai.stat.files.StatDescriptionBlocksLoader;
-import poeai.stat.tables.English.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,20 +33,19 @@ public class FileFilter {
         var objectMapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        var modsFile = ModDtoRepository.class.getResourceAsStream("Mods.json");
-        TypeReference<List<ModDto>> listModDtoType = new TypeReference<>() {
-        };
-        var modDtoRepository = new ModDtoRepository(objectMapper.readValue(modsFile, listModDtoType));
+        var modDtoRepository = new ModRepository(
+                new ClassPathResource("/poe.gamedata/tables/English/Mods.json"),
+                objectMapper
+        );
+        var statDtoRepository = new StatRepository(
+                new ClassPathResource("/poe.gamedata/tables/English/Stats.json"),
+                objectMapper
+        );
 
-        TypeReference<List<StatDto>> listStatDtoType = new TypeReference<>() {
-        };
-        var statsFile = StatDtoRepository.class.getResourceAsStream("Stats.json");
-        var statDtoRepository = new StatDtoRepository(objectMapper.readValue(statsFile, listStatDtoType));
-
-        TypeReference<List<TagDto>> listTagDtoType = new TypeReference<>() {
-        };
-        var tagsFile = TagDtoRepository.class.getResourceAsStream("Tags.json");
-        var tagDtoRepository = new TagDtoRepository(objectMapper.readValue(tagsFile, listTagDtoType));
+        var tagDtoRepository = new TagRepository(
+                new ClassPathResource("/poe.gamedata/tables/English/Tags.json"),
+                objectMapper
+        );
 
         var statDtoFilteringService = new StatDtoFilteringService(modDtoRepository, tagDtoRepository, statDtoRepository);
 
