@@ -14,9 +14,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternUtils;
-import poeai.currency.dto.CurrenciesDto;
-import poeai.currency.dto.CurrencyDetailDto;
-import poeai.currency.dto.CurrencyRateDto;
+import poeai.currency.model.Currencies;
+import poeai.currency.model.CurrencyDetail;
+import poeai.currency.model.CurrencyRate;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,7 +46,7 @@ class CurrencyRepositoryTest {
     private ObjectMapper objectMapper;
 
     @Nested
-    class GivenNoCurrenciesDto {
+    class GivenNoCurrencies {
 
         @BeforeEach
         void before() {
@@ -70,16 +70,16 @@ class CurrencyRepositoryTest {
     @Nested
     class GivenCurrencyDetail_WithoutTradeId {
 
-        private CurrenciesDto currenciesDto;
+        private Currencies currencies;
 
         @BeforeEach
         void before() throws IOException {
-            currenciesDto = mock(CurrenciesDto.class);
-            var currencyDetailDto = mock(CurrencyDetailDto.class);
-            when(currenciesDto.detailsStream())
+            currencies = mock(Currencies.class);
+            var currencyDetailDto = mock(CurrencyDetail.class);
+            when(currencies.detailsStream())
                     .thenReturn(Stream.of(currencyDetailDto));
-            when(objectMapper.readValue(nullable(File.class), eq(CurrenciesDto.class)))
-                    .thenReturn(currenciesDto);
+            when(objectMapper.readValue(nullable(File.class), eq(Currencies.class)))
+                    .thenReturn(currencies);
             currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
         }
 
@@ -104,19 +104,19 @@ class CurrencyRepositoryTest {
     @Nested
     class GivenCurrency_exalted_WithTradeId {
 
-        private CurrenciesDto currenciesDto;
+        private Currencies currencies;
 
-        private CurrencyDetailDto exaltedCurrencyDetail;
+        private CurrencyDetail exaltedCurrencyDetail;
 
         @BeforeEach
         void before() {
-            currenciesDto = mock(CurrenciesDto.class);
-            exaltedCurrencyDetail = mock(CurrencyDetailDto.class);
+            currencies = mock(Currencies.class);
+            exaltedCurrencyDetail = mock(CurrencyDetail.class);
             when(exaltedCurrencyDetail.hasTradeId())
                     .thenReturn(true);
-            when(exaltedCurrencyDetail.id())
+            when(exaltedCurrencyDetail.index())
                     .thenReturn(EXALT_INDEX);
-            when(currenciesDto.detailsStream())
+            when(currencies.detailsStream())
                     .thenReturn(Stream.of(exaltedCurrencyDetail));
         }
 
@@ -130,8 +130,8 @@ class CurrencyRepositoryTest {
 
                 @BeforeEach
                 void before() throws IOException {
-                    when(objectMapper.readValue(nullable(File.class), eq(CurrenciesDto.class)))
-                            .thenReturn(currenciesDto);
+                    when(objectMapper.readValue(nullable(File.class), eq(Currencies.class)))
+                            .thenReturn(currencies);
                     currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
                     call = assertThatThrownBy(() -> currencyRepository.findById(EXALT_TRADE_ID));
                 }
@@ -152,15 +152,15 @@ class CurrencyRepositoryTest {
                 when(exaltedCurrencyDetail.tradeId())
                         .thenReturn(EXALT_TRADE_ID);
 
-                var currencyRateDto = mock(CurrencyRateDto.class);
+                var currencyRateDto = mock(CurrencyRate.class);
                 when(currencyRateDto.chaosEquivalent())
                         .thenReturn(325.5);
                 when(currencyRateDto.index())
                         .thenReturn(EXALT_INDEX);
-                when(currenciesDto.lines())
+                when(currencies.lines())
                         .thenReturn(List.of(currencyRateDto));
-                when(objectMapper.readValue(nullable(File.class), eq(CurrenciesDto.class)))
-                        .thenReturn(currenciesDto);
+                when(objectMapper.readValue(nullable(File.class), eq(Currencies.class)))
+                        .thenReturn(currencies);
                 currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
             }
 
@@ -185,18 +185,18 @@ class CurrencyRepositoryTest {
                 when(exaltedCurrencyDetail.tradeId())
                         .thenReturn(EXALT_TRADE_ID);
 
-                var currencyRateDto = mock(CurrencyRateDto.class);
+                var currencyRateDto = mock(CurrencyRate.class);
                 when(currencyRateDto.chaosEquivalent())
                         .thenReturn(325.5);
                 when(currencyRateDto.index())
                         .thenReturn(EXALT_INDEX);
 
-                var otherCurrenciesDto = mock(CurrenciesDto.class);
+                var otherCurrenciesDto = mock(Currencies.class);
                 when(otherCurrenciesDto.lines())
                         .thenReturn(List.of(currencyRateDto));
 
-                when(objectMapper.readValue(nullable(File.class), eq(CurrenciesDto.class)))
-                        .thenReturn(currenciesDto, otherCurrenciesDto);
+                when(objectMapper.readValue(nullable(File.class), eq(Currencies.class)))
+                        .thenReturn(currencies, otherCurrenciesDto);
 
                 currencyRepository = new CurrencyRepository(List.of(firstResource, secondResource), objectMapper);
             }

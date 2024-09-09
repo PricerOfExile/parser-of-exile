@@ -5,9 +5,9 @@ import jakarta.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
-import poeai.currency.dto.CurrenciesDto;
-import poeai.currency.dto.CurrencyDetailDto;
-import poeai.currency.dto.CurrencyRateDto;
+import poeai.currency.model.Currencies;
+import poeai.currency.model.CurrencyDetail;
+import poeai.currency.model.CurrencyRate;
 import poeai.gamedata.GameDataFileLoadingException;
 
 import java.io.IOException;
@@ -31,32 +31,18 @@ public class CurrencyRepository {
 
         var currenciesDtos = parseResources(resources, objectMapper);
         var chaosEquivalentPerCurrencyIndex = currenciesDtos.stream()
-                .flatMap(currenciesDto -> currenciesDto.lines().stream())
-                .collect(Collectors.toMap(CurrencyRateDto::index, CurrencyRateDto::chaosEquivalent));
+                .flatMap(currencies -> currencies.lines().stream())
+                .collect(Collectors.toMap(CurrencyRate::index, CurrencyRate::chaosEquivalent));
         currencies = currenciesDtos.stream()
-                .flatMap(CurrenciesDto::detailsStream)
-                .filter(CurrencyDetailDto::hasTradeId)
+                .flatMap(Currencies::detailsStream)
+                .filter(CurrencyDetail::hasTradeId)
                 .distinct()
-                .filter(currencyDetailDto -> chaosEquivalentPerCurrencyIndex.containsKey(currencyDetailDto.id()))
-                .map(currencyDetailDto -> {
-                    var chaosOrbEquivalent = chaosEquivalentPerCurrencyIndex.get(currencyDetailDto.id());
-                    return new Currency(currencyDetailDto.tradeId(), chaosOrbEquivalent);
+                .filter(currencyDetail -> chaosEquivalentPerCurrencyIndex.containsKey(currencyDetail.index()))
+                .map(currencyDetail -> {
+                    var chaosOrbEquivalent = chaosEquivalentPerCurrencyIndex.get(currencyDetail.index());
+                    return new Currency(currencyDetail.tradeId(), chaosOrbEquivalent);
                 })
                 .collect(Collectors.toSet());
-    }
-
-    private List<CurrenciesDto> parseResources(List<Resource> resources, ObjectMapper objectMapper) {
-        return resources.stream()
-                .map(resource -> parseResource(resource, objectMapper))
-                .toList();
-    }
-
-    private CurrenciesDto parseResource(Resource resource, ObjectMapper objectMapper) {
-        try {
-            return objectMapper.readValue(resource.getFile(), CurrenciesDto.class);
-        } catch (IOException e) {
-            throw new GameDataFileLoadingException(resource, e);
-        }
     }
 
     public Currency findById(String tradeId) {
@@ -67,5 +53,19 @@ public class CurrencyRepository {
                 .filter(currency -> tradeId.equals(currency.tradeId()))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException(format("Currency [%s] Not Found", tradeId)));
+    }
+
+    private List<Currencies> parseResources(List<Resource> resources, ObjectMapper objectMapper) {
+        return resources.stream()
+                .map(resource -> parseResource(resource, objectMapper))
+                .toList();
+    }
+
+    private Currencies parseResource(Resource resource, ObjectMapper objectMapper) {
+        try {
+            return objectMapper.readValue(resource.getFile(), Currencies.class);
+        } catch (IOException e) {
+            throw new GameDataFileLoadingException(resource, e);
+        }
     }
 }
