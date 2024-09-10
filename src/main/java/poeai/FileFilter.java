@@ -30,17 +30,7 @@ public class FileFilter {
          */
     }
 
-    private static void writeToNewFile(DumpedItem item, Path folder) {
-        var objectMapper = new ObjectMapper()
-                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                .configure(SerializationFeature.INDENT_OUTPUT, true);
-        var resolve = folder.resolve(item.id() + ".json");
-        try {
-            objectMapper.writeValue(resolve.toFile(), item);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 
 
 }

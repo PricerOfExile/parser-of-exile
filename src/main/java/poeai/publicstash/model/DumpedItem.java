@@ -9,7 +9,7 @@ public record DumpedItem(String id,
                          String rarity,
                          int ilvl,
                          boolean identified,
-                         String priceInChaos,
+                         double priceInChaos,
                          int levelRequirement,
                          String socket,
                          Influences influences,
@@ -19,18 +19,18 @@ public record DumpedItem(String id,
                          boolean split,
                          boolean corrupted,
                          Qualities qualities,
-                         List<String> mods,
                          List<ValuatedStat> valuatedStats) {
 
     public DumpedItem(PricedItem item,
+                      double priceInChaos,
                       List<ValuatedStat> valuatedStats) {
         this(
                 item.id(),
                 item.item().rarity(),
                 item.item().ilvl(),
                 item.identified(),
-                item.price().quantity(),
-                68,
+                priceInChaos,
+                item.item().levelRequirement(),
                 Optional.ofNullable(item.item().sockets()).stream()
                         .flatMap(List::stream)
                         .findFirst()
@@ -46,7 +46,6 @@ public record DumpedItem(String id,
                 new Qualities(
                         0, 20, 0, 0, 0, 0, 0, 0, 0, 0
                 ),
-                item.item().explicitMods(),
                 valuatedStats
         );
     }

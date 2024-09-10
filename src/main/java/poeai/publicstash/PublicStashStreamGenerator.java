@@ -10,6 +10,7 @@ import poeai.publicstash.model.PublicStashes;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 @Service
@@ -26,17 +27,17 @@ public class PublicStashStreamGenerator {
         this.objectMapper = objectMapper;
     }
 
-    public Stream<PublicStash> generateForLeague(League league) {
-        try {
-            // TODO - I cannot return the stream from here as it will be close by the try catch
-            Stream<Path> paths = Files.walk(config.getSourceFolder());
-            return paths
+    public void execute(ItemFilters filters,
+                        Consumer<Stream<PublicStash>> publicStashConsumer) {
+        try (Stream<Path> paths = Files.walk(config.getSourceFolder())) {
+            var publicStashStream = paths
                     .filter(Files::isRegularFile)
                     .parallel()
                     .map(this::parseFile)
                     .flatMap(PublicStashes::streamStashes)
                     .filter(PublicStash::canContainEquipment)
-                    .filter(stash -> stash.isOnLeague(league));
+                    .filter(stash -> stash.isOnLeague(filters.league()));
+            publicStashConsumer.accept(publicStashStream);
         } catch (IOException e) {
             throw new PublicStashFileLoadingException(e);
         }

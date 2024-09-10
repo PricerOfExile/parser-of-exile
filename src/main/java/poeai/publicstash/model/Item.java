@@ -99,6 +99,15 @@ public record Item(String id,
                 .toList();
     }
 
+    public int levelRequirement() {
+        return requirements.stream()
+                .filter(itemProperty -> itemProperty.name().equals("Level"))
+                .map(ItemProperty::values)
+                .map(values -> Integer.parseInt((String) values.get(0).get(0)))
+                .findFirst()
+                .orElse(0);
+    }
+
     public boolean hasNoteStartingWithTilde() {
         return note != null && note.startsWith("~");
     }

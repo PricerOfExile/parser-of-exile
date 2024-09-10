@@ -11,7 +11,15 @@ public class PublicStashesTransformerConfig {
 
     private Path sourceFolder;
 
-    private int itemReadLimit;
+    private Path targetFolder;
+
+    public Path getTargetFolder() {
+        return targetFolder;
+    }
+
+    public void setTargetFolder(Path targetFolder) {
+        this.targetFolder = targetFolder;
+    }
 
     public Path getSourceFolder() {
         return sourceFolder;
@@ -19,13 +27,5 @@ public class PublicStashesTransformerConfig {
 
     public void setSourceFolder(Path sourceFolder) {
         this.sourceFolder = sourceFolder;
-    }
-
-    public int getItemReadLimit() {
-        return itemReadLimit;
-    }
-
-    public void setItemReadLimit(int itemReadLimit) {
-        this.itemReadLimit = itemReadLimit;
     }
 }

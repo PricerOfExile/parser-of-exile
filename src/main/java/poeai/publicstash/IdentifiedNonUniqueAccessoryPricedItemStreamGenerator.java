@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import poeai.publicstash.model.PricedItem;
 import poeai.publicstash.model.League;
 
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 @Service
@@ -21,14 +22,17 @@ public class IdentifiedNonUniqueAccessoryPricedItemStreamGenerator {
         this.publicStashStreamGenerator = publicStashStreamGenerator;
     }
 
-    public Stream<PricedItem> generateForLeague(League league) {
-        return publicStashStreamGenerator.generateForLeague(league)
-                .flatMap(publicStash -> publicStash.items().stream())
-                .filter(PricedItem::isAccessories)
-                .filter(PricedItem::isNotTrinket)
-                .filter(PricedItem::isNotUnique)
-                .filter(PricedItem::identified)
-                .filter(PricedItem::hasPrice)
-                .limit(config.getItemReadLimit());
+    public void execute(ItemFilters filters,
+                        Consumer<Stream<PricedItem>> itemStreamConsumer) {
+        publicStashStreamGenerator.execute(filters, publicStashStream -> {
+            var pricedItemStream = publicStashStream.flatMap(publicStash -> publicStash.items().stream())
+                    .filter(PricedItem::isAccessories)
+                    .filter(PricedItem::isNotTrinket)
+                    .filter(PricedItem::isNotUnique)
+                    .filter(PricedItem::identified)
+                    .filter(PricedItem::hasPrice)
+                    .limit(filters.itemLimit());
+            itemStreamConsumer.accept(pricedItemStream);
+        });
     }
 }
