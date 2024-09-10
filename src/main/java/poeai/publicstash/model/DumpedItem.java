@@ -44,7 +44,7 @@ public record DumpedItem(String id,
                 item.item().split(),
                 item.item().corrupted(),
                 new Qualities(
-                        20, 0, 0,0,0,0,0,0,0,0
+                        0, 20, 0, 0, 0, 0, 0, 0, 0, 0
                 ),
                 item.item().explicitMods(),
                 valuatedStats

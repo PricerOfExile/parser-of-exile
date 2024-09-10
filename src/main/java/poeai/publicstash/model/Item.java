@@ -1,5 +1,7 @@
 package poeai.publicstash.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
@@ -25,7 +27,58 @@ public record Item(String id,
                    boolean duplicated,
                    boolean split,
                    boolean corrupted,
-                   Influences influences) {
+                   Influences influences,
+                   Qualities qualities) {
+
+    @JsonCreator
+    public Item(String id,
+                String baseType,
+                String rarity,
+                int ilvl,
+                boolean identified,
+                ExtendedData extended,
+                String note,
+                List<String> implicitMods,
+                List<String> explicitMods,
+                List<ItemProperty> requirements,
+                List<ItemProperty> properties,
+                List<String> enchantMods,
+                List<String> craftedMods,
+                List<String> fracturedMods,
+                List<String> veiledMods,
+                List<ItemSocket> sockets,
+                boolean fractured,
+                boolean synthesised,
+                boolean duplicated,
+                boolean split,
+                boolean corrupted,
+                Influences influences) {
+        this(
+                id,
+                baseType,
+                rarity,
+                ilvl,
+                identified,
+                extended,
+                note,
+                implicitMods,
+                explicitMods,
+                requirements,
+                properties,
+                enchantMods,
+                craftedMods,
+                fracturedMods,
+                veiledMods,
+                sockets,
+                fractured,
+                synthesised,
+                duplicated,
+                split,
+                corrupted,
+                influences,
+                Qualities.from(properties)
+        );
+    }
 
     public boolean isAccessories() {
         return extended.category().equals("accessories");

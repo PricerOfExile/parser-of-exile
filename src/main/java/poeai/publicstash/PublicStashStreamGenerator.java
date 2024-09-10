@@ -27,7 +27,9 @@ public class PublicStashStreamGenerator {
     }
 
     public Stream<PublicStash> generateForLeague(League league) {
-        try (Stream<Path> paths = Files.walk(config.getSourceFolder())) {
+        try {
+            // TODO - I cannot return the stream from here as it will be close by the try catch
+            Stream<Path> paths = Files.walk(config.getSourceFolder());
             return paths
                     .filter(Files::isRegularFile)
                     .parallel()
