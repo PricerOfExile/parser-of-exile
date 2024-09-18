@@ -40,43 +40,43 @@ public record Qualities(int attack,
                 .orElse(new Qualities(0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
     }
 
-    private static Qualities ofAttack(int value) {
+    public static Qualities ofAttack(int value) {
         return new Qualities(value, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
-    private static Qualities ofAttribute(int value) {
+    public static Qualities ofAttribute(int value) {
         return new Qualities(0, value, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
-    private static Qualities ofCaster(int value) {
+    public static Qualities ofCaster(int value) {
         return new Qualities(0, 0, value, 0, 0, 0, 0, 0, 0, 0);
     }
 
-    private static Qualities ofCritical(int value) {
+    public static Qualities ofCritical(int value) {
         return new Qualities(0, 0, 0, value, 0, 0, 0, 0, 0, 0);
     }
 
-    private static Qualities ofDefense(int value) {
+    public static Qualities ofDefense(int value) {
         return new Qualities(0, 0, 0, 0, value, 0, 0, 0, 0, 0);
     }
 
-    private static Qualities ofElementalDamage(int value) {
+    public static Qualities ofElementalDamage(int value) {
         return new Qualities(0, 0, 0, 0, 0, value, 0, 0, 0, 0);
     }
 
-    private static Qualities ofLifeAndMana(int value) {
+    public static Qualities ofLifeAndMana(int value) {
         return new Qualities(0, 0, 0, 0, 0, 0, value, 0, 0, 0);
     }
 
-    private static Qualities ofPhysicalAndChaos(int value) {
+    public static Qualities ofPhysicalAndChaos(int value) {
         return new Qualities(0, 0, 0, 0, 0, 0, 0, value, 0, 0);
     }
 
-    private static Qualities ofResistance(int value) {
+    public static Qualities ofResistance(int value) {
         return new Qualities(0, 0, 0, 0, 0, 0, 0, 0, value, 0);
     }
 
-    private static Qualities ofSpeed(int value) {
+    public static Qualities ofSpeed(int value) {
         return new Qualities(0, 0, 0, 0, 0, 0, 0, 0, 0, value);
     }
 

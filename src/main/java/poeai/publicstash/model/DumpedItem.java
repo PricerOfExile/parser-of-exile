@@ -1,10 +1,12 @@
 package poeai.publicstash.model;
 
+import lombok.Builder;
 import poeai.gamedata.statdescription.ValuatedStat;
 
 import java.util.List;
 import java.util.Optional;
 
+@Builder(toBuilder = true)
 public record DumpedItem(String id,
                          String rarity,
                          int ilvl,

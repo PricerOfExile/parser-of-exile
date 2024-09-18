@@ -1,5 +1,8 @@
 package poeai.publicstash.model;
 
+import lombok.Builder;
+
+@Builder(toBuilder = true)
 public record Influences(boolean warlord,
                          boolean elder,
                          boolean shaper,
