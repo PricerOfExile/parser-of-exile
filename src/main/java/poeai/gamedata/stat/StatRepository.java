@@ -26,8 +26,8 @@ public class StatRepository {
         var listStatType = new TypeReference<List<Stat>>() {
             // Note : helps Jackson to parse the file in the correct type
         };
-        try {
-            statById = objectMapper.readValue(statResource.getFile(), listStatType).stream()
+        try(var inputStream = statResource.getInputStream()) {
+            statById = objectMapper.readValue(inputStream, listStatType).stream()
                     .collect(Collectors.toMap(Stat::index, Function.identity()));
         } catch (Exception e) {
             throw new GameDataFileLoadingException(statResource, e);

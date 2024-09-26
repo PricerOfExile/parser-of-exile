@@ -1,8 +1,7 @@
-package poeai.item;
+package poeai.publicstash.model;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import poeai.publicstash.model.Price;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

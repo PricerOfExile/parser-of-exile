@@ -20,6 +20,7 @@ import poeai.currency.model.CurrencyRate;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Stream;
@@ -78,7 +79,7 @@ class CurrencyRepositoryTest {
             var currencyDetailDto = mock(CurrencyDetail.class);
             when(currencies.detailsStream())
                     .thenReturn(Stream.of(currencyDetailDto));
-            when(objectMapper.readValue(nullable(File.class), eq(Currencies.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), eq(Currencies.class)))
                     .thenReturn(currencies);
             currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
         }
@@ -130,7 +131,7 @@ class CurrencyRepositoryTest {
 
                 @BeforeEach
                 void before() throws IOException {
-                    when(objectMapper.readValue(nullable(File.class), eq(Currencies.class)))
+                    when(objectMapper.readValue(nullable(InputStream.class), eq(Currencies.class)))
                             .thenReturn(currencies);
                     currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
                     call = assertThatThrownBy(() -> currencyRepository.findById(EXALT_TRADE_ID));
@@ -159,7 +160,7 @@ class CurrencyRepositoryTest {
                         .thenReturn(EXALT_INDEX);
                 when(currencies.lines())
                         .thenReturn(List.of(currencyRateDto));
-                when(objectMapper.readValue(nullable(File.class), eq(Currencies.class)))
+                when(objectMapper.readValue(nullable(InputStream.class), eq(Currencies.class)))
                         .thenReturn(currencies);
                 currencyRepository = new CurrencyRepository(List.of(firstResource), objectMapper);
             }
@@ -195,7 +196,7 @@ class CurrencyRepositoryTest {
                 when(otherCurrenciesDto.lines())
                         .thenReturn(List.of(currencyRateDto));
 
-                when(objectMapper.readValue(nullable(File.class), eq(Currencies.class)))
+                when(objectMapper.readValue(nullable(InputStream.class), eq(Currencies.class)))
                         .thenReturn(currencies, otherCurrenciesDto);
 
                 currencyRepository = new CurrencyRepository(List.of(firstResource, secondResource), objectMapper);

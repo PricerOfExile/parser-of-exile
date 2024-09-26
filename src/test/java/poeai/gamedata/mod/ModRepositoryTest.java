@@ -14,6 +14,7 @@ import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,7 +37,7 @@ class ModRepositoryTest {
 
         @BeforeEach
         void before() throws IOException {
-            when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                     .thenReturn(List.of());
             modRepository = new ModRepository(resource, objectMapper);
         }
@@ -63,7 +64,7 @@ class ModRepositoryTest {
                         .thenReturn(true);
                 when(expectedMod.isNotUniqueNorWeaponTree())
                         .thenReturn(true);
-                when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+                when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                         .thenReturn(List.of(expectedMod));
                 modRepository = new ModRepository(resource, objectMapper);
             }
@@ -85,7 +86,7 @@ class ModRepositoryTest {
                         .thenReturn(true);
                 when(mod.isNotUniqueNorWeaponTree())
                         .thenReturn(false);
-                when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+                when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                         .thenReturn(List.of(mod));
                 modRepository = new ModRepository(resource, objectMapper);
             }
@@ -109,7 +110,7 @@ class ModRepositoryTest {
                 Mod mod = mock(Mod.class);
                 when(mod.isEquipmentRelated())
                         .thenReturn(false);
-                when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+                when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                         .thenReturn(List.of(mod));
                 modRepository = new ModRepository(resource, objectMapper);
             }

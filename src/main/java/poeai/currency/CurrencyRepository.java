@@ -62,8 +62,8 @@ public class CurrencyRepository {
     }
 
     private Currencies parseResource(Resource resource, ObjectMapper objectMapper) {
-        try {
-            return objectMapper.readValue(resource.getFile(), Currencies.class);
+        try(var inputStream = resource.getInputStream()) {
+            return objectMapper.readValue(inputStream, Currencies.class);
         } catch (IOException e) {
             throw new GameDataFileLoadingException(resource, e);
         }

@@ -23,8 +23,8 @@ public class TagRepository {
         TypeReference<List<Tag>> listTagType = new TypeReference<>() {
             // Note : hint for Jackson to parse file
         };
-        try {
-            tags = objectMapper.readValue(resource.getFile(), listTagType);
+        try(var inputStream = resource.getInputStream()) {
+            tags = objectMapper.readValue(inputStream, listTagType);
         } catch (Exception e) {
             throw new GameDataFileLoadingException(resource, e);
         }

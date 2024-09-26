@@ -14,6 +14,7 @@ import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,7 +37,7 @@ class TagRepositoryTest {
 
         @BeforeEach
         void before() throws IOException {
-            when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                     .thenReturn(List.of());
             tagRepository = new TagRepository(resource, objectMapper);
         }
@@ -56,7 +57,7 @@ class TagRepositoryTest {
             var tagDto = mock(Tag.class);
             when(tagDto.isAccessoryTag())
                     .thenReturn(false);
-            when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                     .thenReturn(List.of(tagDto));
             tagRepository = new TagRepository(resource, objectMapper);
         }
@@ -78,7 +79,7 @@ class TagRepositoryTest {
             tag = mock(Tag.class);
             when(tag.isAccessoryTag())
                     .thenReturn(true);
-            when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                     .thenReturn(List.of(tag));
             tagRepository = new TagRepository(resource, objectMapper);
         }
@@ -103,7 +104,7 @@ class TagRepositoryTest {
             var notLinkedTagDto = mock(Tag.class);
             when(notLinkedTagDto.isAccessoryTag())
                     .thenReturn(false);
-            when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                     .thenReturn(List.of(expectedTag, notLinkedTagDto));
             tagRepository = new TagRepository(resource, objectMapper);
         }

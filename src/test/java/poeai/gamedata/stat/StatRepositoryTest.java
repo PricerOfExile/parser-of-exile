@@ -14,6 +14,7 @@ import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.IntStream;
@@ -41,7 +42,7 @@ class StatRepositoryTest {
 
         @BeforeEach
         void before() throws IOException {
-            when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                     .thenReturn(List.of());
             statRepository = new StatRepository(statResource, objectMapper);
         }
@@ -64,7 +65,7 @@ class StatRepositoryTest {
             expectedStat = mock(Stat.class);
             when(expectedStat.index())
                     .thenReturn(STAT_INDEX);
-            when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                     .thenReturn(List.of(expectedStat));
             statRepository = new StatRepository(statResource, objectMapper);
         }
@@ -84,7 +85,7 @@ class StatRepositoryTest {
             Stat expectedStat = mock(Stat.class);
             when(expectedStat.index())
                     .thenReturn(STAT_INDEX + 1);
-            when(objectMapper.readValue(nullable(File.class), any(TypeReference.class)))
+            when(objectMapper.readValue(nullable(InputStream.class), any(TypeReference.class)))
                     .thenReturn(List.of(expectedStat));
             statRepository = new StatRepository(statResource, objectMapper);
         }
