@@ -1,3 +1,6 @@
 public-stashes:
   source-folder:
   target-folder:
+
+item-evaluator:
+  model-api-url: http://localhost:31080

@@ -21,9 +21,20 @@ public class StatValuator {
     }
 
     public List<ValuatedStat> valuateDisplayedMod(String descriptionLine) {
-        return statDescriptions.parallelStream()
+        List<ValuatedStat> valuatedStats = statDescriptions.parallelStream()
                 .map(statDescription -> statDescription.valuateDisplayedMod(descriptionLine))
                 .flatMap(List::stream)
                 .toList();
+        if (valuatedStats.isEmpty()
+                // Note: Expected Lines we cannot parse
+                && !descriptionLine.startsWith("Allocates")
+                && !descriptionLine.contains("Tower")
+                // Note: Expected Lines we don't have to parse : data quality ?
+                && !descriptionLine.startsWith("Suffix")
+                && !descriptionLine.startsWith("Prefix")
+        ) {
+            log.error(descriptionLine);
+        }
+        return valuatedStats;
     }
 }

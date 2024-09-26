@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public record Item(String id,
@@ -100,7 +101,9 @@ public record Item(String id,
     }
 
     public int levelRequirement() {
-        return requirements.stream()
+        return Optional.ofNullable(requirements)
+                .orElse(List.of())
+                .stream()
                 .filter(itemProperty -> itemProperty.name().equals("Level"))
                 .map(ItemProperty::values)
                 .map(values -> Integer.parseInt((String) values.get(0).get(0)))

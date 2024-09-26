@@ -11,10 +11,8 @@ import poeai.gamedata.statdescription.StatCatalog;
 import poeai.gamedata.statdescription.StatValuator;
 import poeai.gamedata.statdescription.ValuatedStat;
 import poeai.publicstash.IdentifiedNonUniqueAccessoryPricedItemStreamGenerator;
-import poeai.publicstash.ItemFilters;
 import poeai.publicstash.PublicStashesTransformerConfig;
 import poeai.publicstash.model.DumpedItem;
-import poeai.publicstash.model.League;
 import poeai.publicstash.model.PricedItem;
 
 import java.io.IOException;
@@ -41,6 +39,8 @@ public class PoEAIApplication implements CommandLineRunner {
 
     private final CurrencyRepository currencyRepository;
 
+    private final StatCatalog statCatalog;
+
     public PoEAIApplication(IdentifiedNonUniqueAccessoryPricedItemStreamGenerator itemStreamGenerator,
                             StatValuator statValuator,
                             StatCatalog statCatalog,
@@ -58,6 +58,7 @@ public class PoEAIApplication implements CommandLineRunner {
             throw new RuntimeException(e);
         }
 
+        this.statCatalog = statCatalog;
         var statDtos = statCatalog.findAllNonUniqueAndAccessoryRelated();
         defaultValuatedStats = statDtos.stream()
                 .map(statDto -> new ValuatedStat(statDto.id(), 0.))
@@ -71,33 +72,36 @@ public class PoEAIApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         logger.info("Running application");
-        itemStreamGenerator.execute(new ItemFilters(League.NECROPOLIS, 100), items -> {
-            items.map(this::buildDumpedItem)
-                    .forEach(this::writeToNewFile);
-        });
+        // Note: I had to remove that, we need to split the code in 2 different apps
+        logger.info("Done");
     }
 
     private DumpedItem buildDumpedItem(PricedItem pricedItem) {
-        var computedStats = pricedItem.item().mods().stream()
-                .map(statValuator::valuateDisplayedMod)
-                .flatMap(List::stream)
-                .toList();
-        var collected = Stream.concat(defaultValuatedStats.stream(), computedStats.stream())
-                .collect(
-                        Collectors.collectingAndThen(
-                                Collectors.groupingBy(ValuatedStat::id, Collectors.reducing(0., ValuatedStat::value, Double::sum)),
-                                map -> map.entrySet().stream()
-                                        .map(entry -> new ValuatedStat(entry.getKey(), entry.getValue()))
-                                        .sorted(Comparator.comparing(ValuatedStat::id))
-                                        .toList()
-                        )
-                );
-        var currencyRate = currencyRepository.findById(pricedItem.price().currency()).chaosEquivalent();
-        return new DumpedItem(
-                pricedItem,
-                currencyRate * Double.parseDouble(pricedItem.price().quantity()),
-                collected
-        );
+        try {
+            var computedStats = pricedItem.item().mods().stream()
+                    .map(statValuator::valuateDisplayedMod)
+                    .flatMap(List::stream)
+                    .toList();
+            var collected = Stream.concat(defaultValuatedStats.stream(), computedStats.stream())
+                    .collect(
+                            Collectors.collectingAndThen(
+                                    Collectors.groupingBy(ValuatedStat::id, Collectors.reducing(0., ValuatedStat::value, Double::sum)),
+                                    map -> map.entrySet().stream()
+                                            .map(entry -> new ValuatedStat(entry.getKey(), entry.getValue()))
+                                            .sorted(Comparator.comparing(ValuatedStat::id))
+                                            .toList()
+                            )
+                    );
+            var currencyRate = currencyRepository.findById(pricedItem.price().currency()).chaosEquivalent();
+            return new DumpedItem(
+                    pricedItem,
+                    currencyRate * Double.parseDouble(pricedItem.price().quantity()),
+                    collected
+            );
+        } catch (Exception e) {
+            logger.error("Cannot Dump Item {}", pricedItem.id(), e);
+            return null;
+        }
     }
 
     private void writeToNewFile(DumpedItem item) {

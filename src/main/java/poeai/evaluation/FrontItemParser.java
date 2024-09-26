@@ -1,4 +1,4 @@
-package poeai.controller;
+package poeai.evaluation;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ public class FrontItemParser {
 
     public DumpedItem execute(String itemFromFront){
 
-        var lines = itemFromFront.split("\r\n");
+        var lines = itemFromFront.split(System.lineSeparator());
         var statDtos = statCatalog.findAllNonUniqueAndAccessoryRelated();
         var defaultValuatedStats = statDtos.stream()
                 .map(statDto -> new ValuatedStat(statDto.id(), 0.))

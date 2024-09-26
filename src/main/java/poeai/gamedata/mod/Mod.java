@@ -74,7 +74,29 @@ public record Mod(int index,
     }
 
     public boolean isNotUniqueNorWeaponTree() {
-        return generationType != ModGenerationType.UNIQUE
-                && generationType != ModGenerationType.WEAPON_TREE;
+        return generationType != ModGenerationType.WEAPON_TREE;
+    }
+
+    public boolean isSynthesis() {
+        return id.startsWith("Synthesis");
+    }
+
+    private static final List<String> IMPLICIT_ACCESSORIES_IDS = List.of(
+            "ImplicitRing",
+            "AbyssJewelSocketImplicit",
+            "ItemStatsDoubledInBreachImplicit",
+            "CanHaveMultipleCraftedMods",
+            "ImplicitE",
+            "Delve",
+            "Talisman",
+            "Essence",
+            "AspectCrafted"
+    );
+
+    // Note: this is a shortcut to find some leagues specific mods
+    // To do it in a proper way we may look into each league mechanism
+    public boolean isImplicitAccessory() {
+        return IMPLICIT_ACCESSORIES_IDS.stream()
+                .anyMatch(id::contains);
     }
 }

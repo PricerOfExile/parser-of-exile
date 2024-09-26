@@ -29,8 +29,9 @@ public record Qualities(int attack,
                             try {
                                 var parse = PERCENT_FORMAT.parse((String) property.values().get(0).get(0));
                                 return type.qualityFactory.apply((int) (100 * parse.doubleValue()));
-                            } catch (ParseException e) {
-                                throw new RuntimeException(e);
+                            } catch (Exception e) {
+                                //throw new RuntimeException(e);
+                                return null;
                             }
                         })
                 )

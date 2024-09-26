@@ -32,7 +32,11 @@ public class StatCatalog {
         var accessoryTags = tagRepository.findAllAccessoryTags();
         var genericAndAccessoryTags = tagRepository.findAllGenericAndAccessoryTags();
         return modRepository.findAllNonUniqueAndEquipmentRelated().stream()
-                .filter(mod -> mod.canBeCraftedOn(accessoryTags) || mod.canSpawnOn(genericAndAccessoryTags))
+                .filter(mod -> mod.canBeCraftedOn(accessoryTags)
+                        || mod.canSpawnOn(genericAndAccessoryTags)
+                        || mod.isSynthesis()
+                        || mod.isImplicitAccessory()
+                )
                 .map(Mod::statIndexes)
                 .flatMap(Set::stream)
                 .distinct()

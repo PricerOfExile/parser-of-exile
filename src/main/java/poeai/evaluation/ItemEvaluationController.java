@@ -1,22 +1,24 @@
-package poeai.controller;
+package poeai.evaluation;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import poeai.evaluation.poemodel.PoEModelAPIClient;
 
 @RestController
 @RequiredArgsConstructor
-public class PoeAiController {
+public class ItemEvaluationController {
 
     private final FrontItemParser frontItemParser;
-    private final PythonAiService pythonAiService;
+    private final PoEModelAPIClient poEModelAPIClient;
 
-    @PostMapping("evaluate")
+    @PostMapping(value = "evaluate", consumes = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> evaluate(@RequestBody String item){
         var parsedItem = frontItemParser.execute(item);
-        var getAiResult = pythonAiService.getAiResult(parsedItem);
+        var getAiResult = poEModelAPIClient.getAiResult(parsedItem);
         return ResponseEntity.ok(getAiResult);
     }
 }
