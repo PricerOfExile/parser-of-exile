@@ -1,0 +1,3532 @@
+{
+  "id": "0a0a5c89a084f5bceff3b83618846d57b03c6ee5d0758ac31f9a957ccf4ff66e",
+  "rarity": "Rare",
+  "ilvl": 84,
+  "identified": true,
+  "priceInChaos": 50.0,
+  "levelRequirement": 67,
+  "socket": "N",
+  "influences": {
+    "warlord": false,
+    "elder": false,
+    "shaper": false,
+    "crusader": false,
+    "redeemer": false,
+    "hunter": false
+  },
+  "fractured": false,
+  "synthesised": false,
+  "duplicated": false,
+  "split": false,
+  "corrupted": false,
+  "qualities": {
+    "attack": 0,
+    "attribute": 20,
+    "caster": 0,
+    "critical": 0,
+    "defense": 0,
+    "elemental": 0,
+    "lifeAndMana": 0,
+    "physicalAndChaos": 0,
+    "resistance": 0,
+    "speed": 0
+  },
+  "valuatedStats": [
+    {
+      "id": "accuracy_rating",
+      "value": 0.0
+    },
+    {
+      "id": "accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "accuracy_rating_+%_during_onslaught",
+      "value": 0.0
+    },
+    {
+      "id": "action_speed_-%",
+      "value": 0.0
+    },
+    {
+      "id": "add_frenzy_charge_on_kill_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "add_frenzy_charge_on_skill_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "add_frenzy_charge_when_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "add_power_charge_on_critical_strike_%",
+      "value": 0.0
+    },
+    {
+      "id": "add_power_charge_on_kill_%_chance",
+      "value": 4.0
+    },
+    {
+      "id": "additional_all_attributes",
+      "value": 0.0
+    },
+    {
+      "id": "additional_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "additional_chaos_resistance_against_damage_over_time_%",
+      "value": 0.0
+    },
+    {
+      "id": "additional_dexterity",
+      "value": 0.0
+    },
+    {
+      "id": "additional_dexterity_and_intelligence",
+      "value": 0.0
+    },
+    {
+      "id": "additional_intelligence",
+      "value": 0.0
+    },
+    {
+      "id": "additional_maximum_all_resistances_%",
+      "value": 0.0
+    },
+    {
+      "id": "additional_physical_damage_reduction_%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "additional_physical_damage_reduction_%_vs_abyssal_monsters",
+      "value": 0.0
+    },
+    {
+      "id": "additional_physical_damage_reduction_%_while_affected_by_determination",
+      "value": 0.0
+    },
+    {
+      "id": "additional_physical_damage_reduction_%_while_moving",
+      "value": 0.0
+    },
+    {
+      "id": "additional_spell_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "additional_strength",
+      "value": 0.0
+    },
+    {
+      "id": "additional_strength_and_dexterity",
+      "value": 0.0
+    },
+    {
+      "id": "additional_strength_and_intelligence",
+      "value": 0.0
+    },
+    {
+      "id": "additive_vaal_skill_damage_modifiers_apply_to_all_skills",
+      "value": 0.0
+    },
+    {
+      "id": "all_attributes_+%",
+      "value": 0.0
+    },
+    {
+      "id": "all_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "anger_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "anger_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "animate_guardian_elemental_resistances_%",
+      "value": 0.0
+    },
+    {
+      "id": "area_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "area_of_effect_+%_if_have_stunned_an_enemy_recently",
+      "value": 0.0
+    },
+    {
+      "id": "area_of_effect_+%_while_you_have_arcane_surge",
+      "value": 0.0
+    },
+    {
+      "id": "armour_+_while_you_have_fortify",
+      "value": 0.0
+    },
+    {
+      "id": "armour_and_evasion_rating_+_while_fortified",
+      "value": 0.0
+    },
+    {
+      "id": "arrow_base_number_of_targets_to_pierce",
+      "value": 0.0
+    },
+    {
+      "id": "arrows_pierce_1_additional_target_per_10_stat_value",
+      "value": 0.0
+    },
+    {
+      "id": "attack_additional_critical_strike_chance_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "attack_and_cast_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "attack_and_cast_speed_+%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "attack_and_cast_speed_+%_during_onslaught",
+      "value": 0.0
+    },
+    {
+      "id": "attack_and_cast_speed_+%_if_enemy_hit_recently",
+      "value": 0.0
+    },
+    {
+      "id": "attack_critical_strike_chance_+%",
+      "value": 0.0
+    },
+    {
+      "id": "attack_critical_strikes_ignore_elemental_resistances",
+      "value": 0.0
+    },
+    {
+      "id": "attack_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "attack_damage_+%_per_500_maximum_mana",
+      "value": 0.0
+    },
+    {
+      "id": "attack_maximum_added_chaos_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_maximum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_maximum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_maximum_added_fire_damage_per_10_strength",
+      "value": 0.0
+    },
+    {
+      "id": "attack_maximum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_maximum_added_lightning_damage_per_10_int",
+      "value": 0.0
+    },
+    {
+      "id": "attack_maximum_added_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_minimum_added_chaos_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_minimum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_minimum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_minimum_added_fire_damage_per_10_strength",
+      "value": 0.0
+    },
+    {
+      "id": "attack_minimum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_minimum_added_lightning_damage_per_10_int",
+      "value": 0.0
+    },
+    {
+      "id": "attack_minimum_added_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "attack_speed_+%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "attack_speed_+%_if_have_been_hit_recently",
+      "value": 0.0
+    },
+    {
+      "id": "attacks_chance_to_blind_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "attacks_chance_to_taunt_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "attacks_impale_on_hit_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "attacks_intimidate_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "attacks_with_this_weapon_maximum_added_cold_damage_per_10_dexterity",
+      "value": 0.0
+    },
+    {
+      "id": "attacks_with_this_weapon_minimum_added_cold_damage_per_10_dexterity",
+      "value": 0.0
+    },
+    {
+      "id": "auras_grant_damage_+%_to_you_and_your_allies",
+      "value": 0.0
+    },
+    {
+      "id": "avoid_all_elemental_status_%",
+      "value": 0.0
+    },
+    {
+      "id": "avoid_cold_damage_%",
+      "value": 0.0
+    },
+    {
+      "id": "avoid_elemental_ailments_%_while_affected_by_elusive",
+      "value": 0.0
+    },
+    {
+      "id": "avoid_fire_damage_%",
+      "value": 0.0
+    },
+    {
+      "id": "avoid_interruption_while_casting_%",
+      "value": 0.0
+    },
+    {
+      "id": "avoid_lightning_damage_%",
+      "value": 0.0
+    },
+    {
+      "id": "axe_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "axe_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "axe_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "base_additional_physical_damage_reduction_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_ailment_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_all_ailment_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_avoid_bleed_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_avoid_chill_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_avoid_freeze_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_avoid_ignite_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_avoid_poison_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_avoid_shock_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_avoid_stun_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_bleed_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_cannot_be_frozen",
+      "value": 0.0
+    },
+    {
+      "id": "base_cannot_be_ignited",
+      "value": 0.0
+    },
+    {
+      "id": "base_cannot_be_shocked",
+      "value": 0.0
+    },
+    {
+      "id": "base_cannot_gain_bleeding",
+      "value": 0.0
+    },
+    {
+      "id": "base_cannot_leech_mana",
+      "value": 0.0
+    },
+    {
+      "id": "base_cast_speed_+%",
+      "value": 13.0
+    },
+    {
+      "id": "base_chance_to_freeze_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_chance_to_ignite_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_chance_to_poison_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_chance_to_shock_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_chaos_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_cold_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_cooldown_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "base_damage_removed_from_mana_before_life_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_energy_shield_leech_from_cold_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_energy_shield_leech_from_fire_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_energy_shield_leech_from_lightning_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_energy_shield_leech_from_spell_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_energy_shield_regeneration_rate_per_minute_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_evasion_rating",
+      "value": 0.0
+    },
+    {
+      "id": "base_extra_damage_rolls",
+      "value": 0.0
+    },
+    {
+      "id": "base_fire_damage_resistance_%",
+      "value": 48.0
+    },
+    {
+      "id": "base_frenzy_charge_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_global_chance_to_knockback_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_item_found_quantity_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_item_found_rarity_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_gain_per_target",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_gained_on_enemy_death",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_gained_on_spell_hit",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_leech_from_attack_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_leech_from_chaos_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_leech_from_cold_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_leech_from_elemental_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_leech_from_fire_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_leech_from_lightning_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_leech_from_physical_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_regeneration_rate_per_minute",
+      "value": 0.0
+    },
+    {
+      "id": "base_life_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_lightning_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_mana_cost_-%",
+      "value": 0.0
+    },
+    {
+      "id": "base_mana_gained_on_enemy_death",
+      "value": 0.0
+    },
+    {
+      "id": "base_mana_leech_from_attack_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "base_mana_regeneration_rate_per_minute",
+      "value": 0.0
+    },
+    {
+      "id": "base_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_maximum_chaos_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_maximum_cold_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_maximum_energy_shield",
+      "value": 0.0
+    },
+    {
+      "id": "base_maximum_fire_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_maximum_life",
+      "value": 54.0
+    },
+    {
+      "id": "base_maximum_lightning_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_maximum_mana",
+      "value": 45.0
+    },
+    {
+      "id": "base_maximum_spell_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_minimum_endurance_charges",
+      "value": 0.0
+    },
+    {
+      "id": "base_minimum_frenzy_charges",
+      "value": 0.0
+    },
+    {
+      "id": "base_minimum_power_charges",
+      "value": 1.0
+    },
+    {
+      "id": "base_movement_velocity_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_number_of_essence_spirits_allowed",
+      "value": 0.0
+    },
+    {
+      "id": "base_number_of_skeletons_allowed",
+      "value": 0.0
+    },
+    {
+      "id": "base_number_of_spectres_allowed",
+      "value": 0.0
+    },
+    {
+      "id": "base_number_of_zombies_allowed",
+      "value": 0.0
+    },
+    {
+      "id": "base_penetrate_elemental_resistances_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_physical_damage_%_to_convert_to_chaos",
+      "value": 0.0
+    },
+    {
+      "id": "base_physical_damage_%_to_convert_to_cold",
+      "value": 0.0
+    },
+    {
+      "id": "base_physical_damage_%_to_convert_to_fire",
+      "value": 0.0
+    },
+    {
+      "id": "base_physical_damage_%_to_convert_to_lightning",
+      "value": 0.0
+    },
+    {
+      "id": "base_physical_damage_over_time_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_physical_damage_reduction_and_evasion_rating",
+      "value": 0.0
+    },
+    {
+      "id": "base_physical_damage_reduction_rating",
+      "value": 0.0
+    },
+    {
+      "id": "base_poison_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_poison_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_projectile_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_reduce_enemy_cold_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_reduce_enemy_fire_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_reduce_enemy_lightning_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_resist_all_elements_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_self_critical_strike_multiplier_-%",
+      "value": 0.0
+    },
+    {
+      "id": "base_self_ignite_duration_-%",
+      "value": 0.0
+    },
+    {
+      "id": "base_should_have_onslaught_from_stat",
+      "value": 0.0
+    },
+    {
+      "id": "base_skill_area_of_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_spell_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_spell_damage_%_suppressed",
+      "value": 0.0
+    },
+    {
+      "id": "base_spell_suppression_chance_%",
+      "value": 0.0
+    },
+    {
+      "id": "base_spell_suppression_chance_150%_of_value",
+      "value": 0.0
+    },
+    {
+      "id": "base_stun_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_stun_recovery_+%",
+      "value": 0.0
+    },
+    {
+      "id": "base_stun_threshold_reduction_+%",
+      "value": 0.0
+    },
+    {
+      "id": "belt_enchant_enemies_you_taunt_have_area_damage_+%_final",
+      "value": 0.0
+    },
+    {
+      "id": "bleed_on_hit_with_attacks_%",
+      "value": 0.0
+    },
+    {
+      "id": "bleeding_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "bow_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "bow_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "bow_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "burn_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "cannot_be_chilled_or_frozen_while_moving",
+      "value": 0.0
+    },
+    {
+      "id": "cannot_be_inflicted_by_corrupted_blood",
+      "value": 0.0
+    },
+    {
+      "id": "cannot_be_poisoned",
+      "value": 0.0
+    },
+    {
+      "id": "cannot_be_shocked_or_ignited_while_moving",
+      "value": 0.0
+    },
+    {
+      "id": "cannot_gain_charges",
+      "value": 0.0
+    },
+    {
+      "id": "cannot_gain_corrupted_blood_while_you_have_at_least_5_stacks",
+      "value": 0.0
+    },
+    {
+      "id": "cannot_use_flask_in_fifth_slot",
+      "value": 0.0
+    },
+    {
+      "id": "cast_speed_+%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "cast_speed_+%_while_holding_shield",
+      "value": 0.0
+    },
+    {
+      "id": "cast_speed_+%_while_holding_staff",
+      "value": 0.0
+    },
+    {
+      "id": "cast_speed_while_dual_wielding_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_crush_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_deal_double_damage_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_deal_double_damage_%_if_have_stunned_an_enemy_recently",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_double_armour_effect_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_evade_attacks_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_evade_attacks_%_while_affected_by_grace",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_fortify_on_melee_stun_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_freeze_shock_ignite_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_gain_onslaught_on_flask_use_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_gain_onslaught_on_kill_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_gain_unholy_might_on_kill_for_3_seconds_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_gain_vaal_soul_on_kill_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_inflict_brittle_on_enemy_on_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_inflict_sap_on_enemy_on_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_inflict_scorch_on_enemy_on_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "chance_to_intimidate_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_damage_taken_+",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_damage_taken_over_time_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_damage_with_attack_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_damage_with_spell_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_dot_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_resistance_+_while_using_flask",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "chaos_spell_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "charges_gained_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chill_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chill_effectiveness_on_self_+%",
+      "value": 0.0
+    },
+    {
+      "id": "chill_enemy_when_hit_duration_ms",
+      "value": 0.0
+    },
+    {
+      "id": "claw_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "claw_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "claw_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "cold_ailment_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "cold_ailment_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "cold_and_chaos_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "cold_and_lightning_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "cold_damage_%_to_add_as_chaos",
+      "value": 0.0
+    },
+    {
+      "id": "cold_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "cold_damage_taken_%_as_fire",
+      "value": 0.0
+    },
+    {
+      "id": "cold_damage_taken_%_as_lightning",
+      "value": 0.0
+    },
+    {
+      "id": "cold_damage_taken_+",
+      "value": 0.0
+    },
+    {
+      "id": "cold_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "cold_damage_with_attack_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "cold_damage_with_spell_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "cold_dot_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "cold_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "cold_spell_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "conductivity_curse_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "critical_strike_chance_+%",
+      "value": 0.0
+    },
+    {
+      "id": "critical_strike_chance_+%_during_any_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "critical_strike_chance_+%_vs_shocked_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "critical_strike_multiplier_+_during_any_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "critical_strike_multiplier_+_if_enemy_shattered_recently",
+      "value": 0.0
+    },
+    {
+      "id": "critical_strike_multiplier_with_dagger_+",
+      "value": 0.0
+    },
+    {
+      "id": "curse_area_of_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "curse_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "curse_effect_on_self_+%",
+      "value": 0.0
+    },
+    {
+      "id": "curse_effect_on_self_+%_while_on_consecrated_ground",
+      "value": 0.0
+    },
+    {
+      "id": "curse_on_hit_level_conductivity",
+      "value": 0.0
+    },
+    {
+      "id": "curse_on_hit_level_despair",
+      "value": 0.0
+    },
+    {
+      "id": "curse_on_hit_level_elemental_weakness",
+      "value": 0.0
+    },
+    {
+      "id": "curse_on_hit_level_flammability",
+      "value": 0.0
+    },
+    {
+      "id": "curse_on_hit_level_frostbite",
+      "value": 0.0
+    },
+    {
+      "id": "curse_on_hit_level_vulnerability",
+      "value": 0.0
+    },
+    {
+      "id": "curse_skill_effect_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "dagger_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "dagger_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_for_you_and_allies_affected_by_your_auras",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_per_15_dex",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_per_15_int",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_per_15_strength",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_per_endurance_charge",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_per_frenzy_charge",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_per_power_charge",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_vs_abyssal_monsters",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_vs_chilled_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_when_on_full_life",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_while_leeching",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_while_life_leeching",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_while_mana_leeching",
+      "value": 0.0
+    },
+    {
+      "id": "damage_+%_with_bow_skills",
+      "value": 0.0
+    },
+    {
+      "id": "damage_over_time_+%",
+      "value": 0.0
+    },
+    {
+      "id": "damage_taken_goes_to_life_over_4_seconds_%",
+      "value": 0.0
+    },
+    {
+      "id": "damage_taken_goes_to_mana_%",
+      "value": 0.0
+    },
+    {
+      "id": "damage_taken_per_250_dexterity_+%",
+      "value": 0.0
+    },
+    {
+      "id": "damage_taken_per_250_intelligence_+%",
+      "value": 0.0
+    },
+    {
+      "id": "damage_taken_per_250_strength_+%",
+      "value": 0.0
+    },
+    {
+      "id": "damage_vs_cursed_enemies_per_enemy_curse_+%",
+      "value": 0.0
+    },
+    {
+      "id": "deal_1000_chaos_damage_per_second_for_10_seconds_on_hit",
+      "value": 0.0
+    },
+    {
+      "id": "deal_no_damage_yourself",
+      "value": 0.0
+    },
+    {
+      "id": "degen_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "delirium_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "determination_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "determination_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "determination_mana_reservation_efficiency_-2%_per_1",
+      "value": 0.0
+    },
+    {
+      "id": "dexterity_+%",
+      "value": 0.0
+    },
+    {
+      "id": "discipline_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "discipline_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "discipline_mana_reservation_efficiency_-2%_per_1",
+      "value": 0.0
+    },
+    {
+      "id": "dot_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "dummy_stat_display_nothing",
+      "value": 0.0
+    },
+    {
+      "id": "elemental_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "elemental_damage_with_attack_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "elemental_penetration_%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "elemental_reflect_damage_taken_and_minion_elemental_reflect_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "elemental_weakness_curse_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "empowered_attack_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "endurance_charge_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "endurance_charge_on_kill_%",
+      "value": 0.0
+    },
+    {
+      "id": "enemies_explode_for_%_life_as_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "enemies_you_blind_have_critical_strike_chance_+%",
+      "value": 0.0
+    },
+    {
+      "id": "enemies_you_expose_have_self_elemental_status_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "enemies_you_hinder_have_life_regeneration_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "enemies_you_intimidate_have_stun_duration_on_self_+%",
+      "value": 0.0
+    },
+    {
+      "id": "enemies_you_maim_have_damage_taken_over_time_+%",
+      "value": 0.0
+    },
+    {
+      "id": "enemies_you_unnerve_have_enemy_spell_critical_strike_chance_+%_against_self",
+      "value": 0.0
+    },
+    {
+      "id": "enemies_you_wither_have_all_resistances_%",
+      "value": 0.0
+    },
+    {
+      "id": "enemy_life_leech_from_chaos_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "enemy_life_leech_from_cold_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "enemy_life_leech_from_fire_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "enemy_life_leech_from_lightning_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "enemy_life_leech_from_physical_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "enemy_physical_damage_%_as_extra_fire_vs_you",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_%_gained_on_block",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_delay_-%",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_gain_per_target",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_gained_on_block",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_recharge_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_recovery_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_regeneration_rate_per_minute_%_if_you_have_hit_an_enemy_recently",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_regeneration_rate_per_minute_%_while_affected_by_discipline",
+      "value": 0.0
+    },
+    {
+      "id": "energy_shield_regeneration_rate_per_minute_if_rare_or_unique_enemy_nearby",
+      "value": 0.0
+    },
+    {
+      "id": "essence_buff_elemental_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "essence_buff_ground_fire_damage_to_deal_per_second",
+      "value": 0.0
+    },
+    {
+      "id": "essence_buff_ground_fire_duration_ms",
+      "value": 0.0
+    },
+    {
+      "id": "essence_display_elemental_damage_taken_while_not_moving_+%",
+      "value": 0.0
+    },
+    {
+      "id": "essence_drain_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "evasion_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "evasion_rating_+%_per_frenzy_charge",
+      "value": 0.0
+    },
+    {
+      "id": "evasion_rating_+%_when_on_full_life",
+      "value": 0.0
+    },
+    {
+      "id": "evasion_rating_+_if_you_have_hit_an_enemy_recently",
+      "value": 0.0
+    },
+    {
+      "id": "evasion_rating_+_while_phasing",
+      "value": 0.0
+    },
+    {
+      "id": "experience_gain_+%",
+      "value": 0.0
+    },
+    {
+      "id": "explode_enemies_for_10%_life_as_physical_on_kill_chance_%",
+      "value": 0.0
+    },
+    {
+      "id": "extra_critical_rolls_during_focus",
+      "value": 0.0
+    },
+    {
+      "id": "faster_bleed_%",
+      "value": 0.0
+    },
+    {
+      "id": "faster_burn_%",
+      "value": 0.0
+    },
+    {
+      "id": "faster_poison_%",
+      "value": 0.0
+    },
+    {
+      "id": "fire_and_chaos_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "fire_and_cold_damage_resistance_%",
+      "value": 15.0
+    },
+    {
+      "id": "fire_and_lightning_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_%_to_add_as_chaos",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_+%_per_20_strength",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_taken_%_as_cold",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_taken_%_as_lightning",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_taken_+",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_with_attack_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "fire_damage_with_spell_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "fire_dot_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "fire_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "fire_spell_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "fishing_bite_sensitivity_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flammability_curse_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flask_charges_used_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flask_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flask_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flask_life_recovery_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flask_life_to_recover_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flask_mana_recovery_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flask_mana_to_recover_+%",
+      "value": 0.0
+    },
+    {
+      "id": "flasks_%_chance_to_not_consume_charges",
+      "value": 0.0
+    },
+    {
+      "id": "focus_cooldown_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "freeze_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_maximum_added_attack_cold_damage_taken",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_maximum_added_attack_fire_damage_taken",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_maximum_added_attack_lightning_damage_taken",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_maximum_added_attack_physical_damage_taken",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_maximum_added_cold_damage_taken_per_frenzy_charge",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_minimum_added_attack_cold_damage_taken",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_minimum_added_attack_fire_damage_taken",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_minimum_added_attack_lightning_damage_taken",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_minimum_added_attack_physical_damage_taken",
+      "value": 0.0
+    },
+    {
+      "id": "from_self_minimum_added_cold_damage_taken_per_frenzy_charge",
+      "value": 0.0
+    },
+    {
+      "id": "frostbite_curse_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "gain_X_random_charges_every_6_seconds",
+      "value": 0.0
+    },
+    {
+      "id": "gain_alchemists_genius_on_flask_use_%",
+      "value": 0.0
+    },
+    {
+      "id": "gain_arcane_surge_on_hit_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "gain_endurance_charge_per_second_if_have_been_hit_recently",
+      "value": 0.0
+    },
+    {
+      "id": "gain_flask_chance_on_crit_%",
+      "value": 0.0
+    },
+    {
+      "id": "gain_frenzy_charge_on_hitting_rare_or_unique_enemy_%",
+      "value": 0.0
+    },
+    {
+      "id": "gain_onslaught_for_3_seconds_%_chance_when_hit",
+      "value": 0.0
+    },
+    {
+      "id": "gain_onslaught_on_hit_duration_ms",
+      "value": 0.0
+    },
+    {
+      "id": "gain_vaal_pact_while_focused",
+      "value": 0.0
+    },
+    {
+      "id": "global_chance_to_blind_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "global_defences_+%",
+      "value": 0.0
+    },
+    {
+      "id": "global_item_attribute_requirements_+%",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_chaos_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_cold_damage_vs_chilled_or_frozen_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_fire_damage_vs_burning_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_fire_damage_vs_ignited_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_lightning_damage_vs_shocked_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "global_maximum_added_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_chaos_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_cold_damage_vs_chilled_or_frozen_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_fire_damage_vs_burning_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_fire_damage_vs_ignited_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_lightning_damage_vs_shocked_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "global_minimum_added_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "glove_implicit_gain_rage_on_attack_hit_cooldown_ms",
+      "value": 0.0
+    },
+    {
+      "id": "grace_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "grace_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "grace_mana_reservation_efficiency_-2%_per_1",
+      "value": 0.0
+    },
+    {
+      "id": "grant_focus_skill",
+      "value": 0.0
+    },
+    {
+      "id": "guard_skill_cooldown_recovery_+%",
+      "value": 0.0
+    },
+    {
+      "id": "hatred_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "hatred_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "hit_and_ailment_damage_+%_vs_cursed_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "hits_ignore_enemy_monster_physical_damage_reduction_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "ignite_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "ignore_armour_movement_penalties",
+      "value": 0.0
+    },
+    {
+      "id": "impale_debuff_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "intelligence_+%",
+      "value": 0.0
+    },
+    {
+      "id": "item_generation_can_have_multiple_crafted_mods",
+      "value": 0.0
+    },
+    {
+      "id": "keystone_unwavering_stance",
+      "value": 0.0
+    },
+    {
+      "id": "life_flask_charges_recovered_per_3_seconds",
+      "value": 0.0
+    },
+    {
+      "id": "life_gained_on_block",
+      "value": 0.0
+    },
+    {
+      "id": "life_leech_from_any_damage_permyriad_while_focused",
+      "value": 0.0
+    },
+    {
+      "id": "life_leech_from_physical_attack_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "life_leech_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "life_recovery_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "life_regeneration_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "life_regeneration_rate_per_minute_%",
+      "value": 0.0
+    },
+    {
+      "id": "life_regeneration_rate_per_minute_%_per_endurance_charge",
+      "value": 0.0
+    },
+    {
+      "id": "life_regeneration_rate_per_minute_%_while_using_flask",
+      "value": 0.0
+    },
+    {
+      "id": "light_radius_+%",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_ailment_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_and_chaos_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_damage_%_to_add_as_chaos",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_damage_taken_%_as_cold",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_damage_taken_%_as_fire",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_damage_taken_+",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_damage_with_attack_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_damage_with_spell_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "lightning_spell_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_accuracy_rating",
+      "value": 0.0
+    },
+    {
+      "id": "local_all_damage_can_poison",
+      "value": 0.0
+    },
+    {
+      "id": "local_armour_and_energy_shield_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_armour_and_evasion_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_armour_and_evasion_and_energy_shield_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_attack_and_cast_speed_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_attack_damage_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_base_evasion_rating",
+      "value": 0.0
+    },
+    {
+      "id": "local_base_physical_damage_reduction_rating",
+      "value": 0.0
+    },
+    {
+      "id": "local_block_chance_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_chance_for_bleeding_damage_+100%_final_inflicted_with_this_weapon",
+      "value": 0.0
+    },
+    {
+      "id": "local_chance_for_poison_damage_+100%_final_inflicted_with_this_weapon",
+      "value": 0.0
+    },
+    {
+      "id": "local_chance_to_bleed_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_chance_to_intimidate_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_critical_strike_chance_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_critical_strike_chance_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_damage_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_damage_taken_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_fire_burst_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_level_X_envy",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_level_x_despair",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_abyssal_cry_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_anger_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_bird_aspect_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_cat_aspect_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_clarity_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_conductivity_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_crab_aspect_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_determination_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_discipline_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_enduring_cry_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_flammability_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_frostbite_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_grace_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_haste_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_hatred_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_herald_of_ash_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_herald_of_ice_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_herald_of_thunder_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_malevolence_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_pride_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_purity_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_purity_of_cold_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_purity_of_fire_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_purity_of_lightning_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_rallying_cry_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_spider_aspect_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_vitality_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_wrath_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_grants_skill_zealotry_level",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_nearby_enemy_chaos_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_nearby_enemy_cold_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_nearby_enemy_fire_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_nearby_enemy_lightning_damage_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_nearby_enemy_physical_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_attack_damage_+%_final",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_attacks_mana_cost_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_additional_critical_strike_chance_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_attack_and_cast_speed_+%_final",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_damage_+%_final_while_on_low_life",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_damage_over_time_+%_final",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_elemental_damage_+%_final",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_get_mana_multplier_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_have_%_chance_to_ignite_with_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_have_mana_reservation_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_maximum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_minimum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_physical_damage_%_to_add_as_lightning",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_supported_by_level_x_arcane_surge",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_gems_supported_by_level_x_maim",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_non_curse_aura_gems_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_skills_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_skills_cast_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_spell_damage_+%_final",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_socketed_spells_mana_cost_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_spend_energy_shield_for_costs_before_mana_for_socketed_skills",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_trigger_level_18_summon_spectral_wolf_on_kill_10%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_trigger_level_x_fiery_impact_on_melee_hit_with_this_weapon",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_trigger_level_x_flame_dash_when_you_use_a_socketed_skill",
+      "value": 0.0
+    },
+    {
+      "id": "local_display_trigger_summon_taunting_contraption_on_flask_use",
+      "value": 0.0
+    },
+    {
+      "id": "local_elemental_penetration_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_energy_shield",
+      "value": 0.0
+    },
+    {
+      "id": "local_energy_shield_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_evasion_and_energy_shield_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_evasion_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_explicit_mod_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_has_X_abyss_sockets",
+      "value": 0.0
+    },
+    {
+      "id": "local_has_X_sockets",
+      "value": 0.0
+    },
+    {
+      "id": "local_hits_ignore_enemy_monster_physical_damage_reduction_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "local_immune_to_curses_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_implicit_mod_cannot_be_changed",
+      "value": 0.0
+    },
+    {
+      "id": "local_influence_mod_requires_celestial_boss_presence",
+      "value": 0.0
+    },
+    {
+      "id": "local_influence_mod_requires_unique_monster_presence",
+      "value": 0.0
+    },
+    {
+      "id": "local_item_can_roll_all_influences",
+      "value": 0.0
+    },
+    {
+      "id": "local_item_drops_on_death_if_equipped_by_animate_armour",
+      "value": 0.0
+    },
+    {
+      "id": "local_item_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_item_sell_price_doubled",
+      "value": 0.0
+    },
+    {
+      "id": "local_item_stats_are_doubled_in_breach",
+      "value": 0.0
+    },
+    {
+      "id": "local_life_gain_per_target",
+      "value": 0.0
+    },
+    {
+      "id": "local_life_leech_from_physical_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "local_mana_leech_from_physical_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_added_chaos_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_added_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_energy_shield_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_life_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_prefixes_allowed_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_maximum_suffixes_allowed_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_minimum_added_chaos_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_minimum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_minimum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_minimum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_minimum_added_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "local_movement_speed_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_physical_damage_%_to_convert_to_a_random_element",
+      "value": 0.0
+    },
+    {
+      "id": "local_physical_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_physical_damage_reduction_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_poison_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_prefix_mod_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_resist_all_elements_%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_skills_granted_by_item_are_supported_by_level_x_unique_trigger_support",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_abyss_jewel_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_area_of_effect_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_area_of_effect_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_aura_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_aura_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_bow_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_bow_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_chaos_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_chaos_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_cold_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_cold_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_curse_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_dexterity_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_dexterity_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_fire_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_fire_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_intelligence_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_intelligence_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_lightning_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_lightning_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_melee_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_melee_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_minion_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_minion_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_projectile_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_projectile_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_strength_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_strength_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_support_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_socketed_support_gem_quality_+",
+      "value": 0.0
+    },
+    {
+      "id": "local_spell_damage_+%_if_item_corrupted",
+      "value": 0.0
+    },
+    {
+      "id": "local_stat_monsters_pick_up_item",
+      "value": 0.0
+    },
+    {
+      "id": "local_suffix_mod_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "local_use_skill_on_melee_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "local_weapon_range_+",
+      "value": 0.0
+    },
+    {
+      "id": "lose_10%_of_maximum_mana_on_skill_use_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "mace_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "mace_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "mace_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "malevolence_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "mana_%_gained_on_block",
+      "value": 0.0
+    },
+    {
+      "id": "mana_degeneration_per_minute_not_in_grace",
+      "value": 0.0
+    },
+    {
+      "id": "mana_flasks_gain_X_charges_every_3_seconds",
+      "value": 0.0
+    },
+    {
+      "id": "mana_gain_per_target",
+      "value": 0.0
+    },
+    {
+      "id": "mana_gained_on_block",
+      "value": 0.0
+    },
+    {
+      "id": "mana_gained_on_spell_hit",
+      "value": 0.0
+    },
+    {
+      "id": "mana_leech_from_physical_attack_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "mana_leech_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "mana_recovery_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "mana_regeneration_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "mana_regeneration_rate_+%_while_moving",
+      "value": 0.0
+    },
+    {
+      "id": "mana_regeneration_rate_+%_while_shocked",
+      "value": 0.0
+    },
+    {
+      "id": "mana_regeneration_rate_per_minute_%",
+      "value": 0.0
+    },
+    {
+      "id": "mana_regeneration_rate_per_minute_%_if_enemy_hit_recently",
+      "value": 0.0
+    },
+    {
+      "id": "mana_regeneration_rate_per_minute_while_dual_wielding",
+      "value": 0.0
+    },
+    {
+      "id": "mana_regeneration_rate_per_minute_while_holding_shield",
+      "value": 0.0
+    },
+    {
+      "id": "mana_regeneration_rate_per_minute_while_wielding_staff",
+      "value": 0.0
+    },
+    {
+      "id": "mana_reservation_efficiency_-2%_per_1",
+      "value": 0.0
+    },
+    {
+      "id": "map_experience_gain_+%",
+      "value": 0.0
+    },
+    {
+      "id": "map_item_drop_quantity_+%",
+      "value": 0.0
+    },
+    {
+      "id": "map_item_drop_rarity_+%",
+      "value": 0.0
+    },
+    {
+      "id": "map_items_drop_corrupted_%",
+      "value": 0.0
+    },
+    {
+      "id": "map_pack_size_+%",
+      "value": 0.0
+    },
+    {
+      "id": "map_packs_are_vaal",
+      "value": 0.0
+    },
+    {
+      "id": "mark_skills_curse_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "max_endurance_charges",
+      "value": 0.0
+    },
+    {
+      "id": "max_fortification_+1_per_5",
+      "value": 0.0
+    },
+    {
+      "id": "max_frenzy_charges",
+      "value": 0.0
+    },
+    {
+      "id": "max_power_charges",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_added_cold_damage_per_frenzy_charge",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_added_fire_damage_if_blocked_recently",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_added_fire_damage_per_endurance_charge",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_added_lightning_damage_per_power_charge",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_added_physical_damage_vs_bleeding_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_added_physical_damage_vs_poisoned_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_energy_shield_+%",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_energy_shield_from_body_armour_+%",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_energy_shield_leech_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_life_%_to_add_as_maximum_energy_shield",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_life_+%",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_life_leech_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_mana_+%",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_mana_leech_rate_+%",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_power_and_endurance_charges_+",
+      "value": 0.0
+    },
+    {
+      "id": "maximum_rage",
+      "value": 0.0
+    },
+    {
+      "id": "melee_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "melee_damage_+%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "melee_range_+",
+      "value": 0.0
+    },
+    {
+      "id": "mine_laying_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "minimum_added_cold_damage_per_frenzy_charge",
+      "value": 0.0
+    },
+    {
+      "id": "minimum_added_fire_damage_if_blocked_recently",
+      "value": 0.0
+    },
+    {
+      "id": "minimum_added_fire_damage_per_endurance_charge",
+      "value": 0.0
+    },
+    {
+      "id": "minimum_added_lightning_damage_per_power_charge",
+      "value": 0.0
+    },
+    {
+      "id": "minimum_added_physical_damage_vs_bleeding_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "minimum_added_physical_damage_vs_poisoned_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "minion_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_attack_and_cast_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_attacks_chance_to_taunt_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_cast_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "minion_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_elemental_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_larger_aggro_radius",
+      "value": 0.0
+    },
+    {
+      "id": "minion_life_leech_from_any_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "minion_life_regeneration_rate_per_minute_%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_maximum_life_+%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_movement_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "minion_skill_area_of_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "monster_base_block_%",
+      "value": 0.0
+    },
+    {
+      "id": "movement_speed_+%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "movement_speed_+%_if_enemy_hit_recently",
+      "value": 0.0
+    },
+    {
+      "id": "movement_speed_+%_while_on_burning_chilled_shocked_ground",
+      "value": 0.0
+    },
+    {
+      "id": "movement_velocity_+%_while_phasing",
+      "value": 0.0
+    },
+    {
+      "id": "nearby_enemies_chilled_on_block",
+      "value": 0.0
+    },
+    {
+      "id": "no_critical_strike_multiplier",
+      "value": 0.0
+    },
+    {
+      "id": "no_mana_regeneration",
+      "value": 0.0
+    },
+    {
+      "id": "non_aura_vaal_skills_soul_requirement_+%",
+      "value": 0.0
+    },
+    {
+      "id": "non_chaos_damage_to_add_as_chaos_damage_%",
+      "value": 0.0
+    },
+    {
+      "id": "non_curse_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "non_curse_aura_effect_+%_vs_enemies",
+      "value": 0.0
+    },
+    {
+      "id": "non_damaging_ailment_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "number_of_additional_arrows",
+      "value": 0.0
+    },
+    {
+      "id": "number_of_additional_curses_allowed",
+      "value": 0.0
+    },
+    {
+      "id": "old_do_not_use_base_life_leech_from_cold_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "old_do_not_use_base_life_leech_from_fire_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "old_do_not_use_base_life_leech_from_lightning_damage_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "phantasm_refresh_duration_on_hit_vs_rare_or_unique_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "phasing_for_4_seconds_on_kill_%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_attack_damage_taken_+",
+      "value": 0.0
+    },
+    {
+      "id": "physical_axe_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_bow_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_claw_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_dagger_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_%_taken_from_mana_before_life",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_%_to_add_as_chaos",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_%_to_add_as_cold",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_%_to_add_as_fire",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_%_to_add_as_lightning",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_%_to_add_as_random_element",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_+%_with_unholy_might",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_reduction_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_reduction_rating_if_you_have_hit_an_enemy_recently",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_taken_%_as_chaos",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_taken_%_as_cold",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_taken_%_as_fire",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_taken_%_as_lightning",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_taken_+",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_to_return_to_melee_attacker",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_with_attack_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_damage_with_spell_skills_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_dot_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "physical_mace_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_reflect_damage_taken_and_minion_physical_reflect_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "physical_spell_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "physical_staff_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_sword_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "physical_wand_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "power_charge_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "power_charge_on_block_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "power_frenzy_or_endurance_charge_on_kill_%",
+      "value": 0.0
+    },
+    {
+      "id": "pride_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "pride_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "projectile_attack_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "projectile_attack_damage_+%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "projectile_base_number_of_targets_to_pierce",
+      "value": 0.0
+    },
+    {
+      "id": "projectile_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "purity_of_fire_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "purity_of_fire_mana_reservation_efficiency_-2%_per_1",
+      "value": 0.0
+    },
+    {
+      "id": "purity_of_ice_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "purity_of_ice_mana_reservation_efficiency_-2%_per_1",
+      "value": 0.0
+    },
+    {
+      "id": "purity_of_lightning_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "purity_of_lightning_mana_reservation_efficiency_-2%_per_1",
+      "value": 0.0
+    },
+    {
+      "id": "quiver_projectiles_pierce_1_additional_target",
+      "value": 0.0
+    },
+    {
+      "id": "quiver_projectiles_pierce_2_additional_targets",
+      "value": 0.0
+    },
+    {
+      "id": "raging_spirits_refresh_duration_on_hit_vs_rare_or_unique_%_chance",
+      "value": 0.0
+    },
+    {
+      "id": "raise_spectre_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "raise_zombie_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "recover_%_maximum_life_on_kill",
+      "value": 0.0
+    },
+    {
+      "id": "recover_%_maximum_life_on_killing_enemy_while_you_have_rage",
+      "value": 0.0
+    },
+    {
+      "id": "recover_%_maximum_mana_on_kill",
+      "value": 0.0
+    },
+    {
+      "id": "recover_%_of_maximum_life_on_block",
+      "value": 0.0
+    },
+    {
+      "id": "recover_10%_of_maximum_mana_on_skill_use_%",
+      "value": 0.0
+    },
+    {
+      "id": "reduce_enemy_chaos_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "reduce_enemy_cold_resistance_with_weapons_%",
+      "value": 0.0
+    },
+    {
+      "id": "reduce_enemy_elemental_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "reduce_enemy_fire_resistance_with_weapons_%",
+      "value": 0.0
+    },
+    {
+      "id": "reduce_enemy_lightning_resistance_with_weapons_%",
+      "value": 0.0
+    },
+    {
+      "id": "reflect_damage_taken_and_minion_reflect_damage_taken_+%",
+      "value": 0.0
+    },
+    {
+      "id": "remove_chill_and_freeze_on_flask_use",
+      "value": 0.0
+    },
+    {
+      "id": "remove_ignite_and_burning_on_flask_use",
+      "value": 0.0
+    },
+    {
+      "id": "remove_shock_on_flask_use",
+      "value": 0.0
+    },
+    {
+      "id": "self_critical_strike_multiplier_-%_per_endurance_charge",
+      "value": 0.0
+    },
+    {
+      "id": "self_elemental_status_duration_-%",
+      "value": 0.0
+    },
+    {
+      "id": "shock_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "shock_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "shock_nearby_enemies_for_x_ms_when_you_focus",
+      "value": 0.0
+    },
+    {
+      "id": "shocked_effect_on_self_+%",
+      "value": 0.0
+    },
+    {
+      "id": "sigil_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "sigil_target_search_range_+%",
+      "value": 0.0
+    },
+    {
+      "id": "siphon_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "skeletons_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "skill_effect_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "skill_mana_cost_+",
+      "value": 0.0
+    },
+    {
+      "id": "skill_mana_cost_+_with_channelling_skills",
+      "value": 0.0
+    },
+    {
+      "id": "skill_mana_cost_+_with_non_channelling_skills",
+      "value": 0.0
+    },
+    {
+      "id": "skills_cost_no_mana_while_focused",
+      "value": 0.0
+    },
+    {
+      "id": "spectre_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "spell_additional_critical_strike_chance_permyriad",
+      "value": 0.0
+    },
+    {
+      "id": "spell_and_attack_maximum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_and_attack_maximum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_and_attack_maximum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_and_attack_minimum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_and_attack_minimum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_and_attack_minimum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_block_%_while_on_low_life",
+      "value": 0.0
+    },
+    {
+      "id": "spell_chance_to_deal_double_damage_%",
+      "value": 0.0
+    },
+    {
+      "id": "spell_critical_strike_chance_+%",
+      "value": 0.0
+    },
+    {
+      "id": "spell_critical_strike_chance_+%_while_dual_wielding",
+      "value": 0.0
+    },
+    {
+      "id": "spell_critical_strike_chance_+%_while_holding_shield",
+      "value": 0.0
+    },
+    {
+      "id": "spell_critical_strike_chance_+%_while_wielding_staff",
+      "value": 0.0
+    },
+    {
+      "id": "spell_critical_strike_multiplier_+_while_dual_wielding",
+      "value": 0.0
+    },
+    {
+      "id": "spell_critical_strike_multiplier_+_while_holding_shield",
+      "value": 0.0
+    },
+    {
+      "id": "spell_critical_strike_multiplier_+_while_wielding_staff",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_during_flask_effect",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_per_10_int",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_per_10_strength",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_per_16_dex",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_per_16_int",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_per_16_strength",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_per_500_maximum_mana",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_per_power_charge",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_while_dual_wielding",
+      "value": 0.0
+    },
+    {
+      "id": "spell_damage_+%_while_holding_shield",
+      "value": 0.0
+    },
+    {
+      "id": "spell_maximum_added_chaos_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_maximum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_maximum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_maximum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_maximum_added_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_minimum_added_chaos_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_minimum_added_cold_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_minimum_added_fire_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_minimum_added_lightning_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_minimum_added_physical_damage",
+      "value": 0.0
+    },
+    {
+      "id": "spell_skill_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "spell_staff_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "spells_chance_to_hinder_on_hit_%",
+      "value": 0.0
+    },
+    {
+      "id": "staff_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "staff_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "staff_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "strength_+%",
+      "value": 0.0
+    },
+    {
+      "id": "stun_threshold_+%",
+      "value": 0.0
+    },
+    {
+      "id": "summon_skeleton_gem_level_+",
+      "value": 0.0
+    },
+    {
+      "id": "summon_totem_cast_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "sword_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "sword_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "sword_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "talisman_implicit_projectiles_pierce_1_additional_target_per_10",
+      "value": 0.0
+    },
+    {
+      "id": "totem_additional_physical_damage_reduction_%",
+      "value": 0.0
+    },
+    {
+      "id": "totem_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "totem_elemental_resistance_%",
+      "value": 0.0
+    },
+    {
+      "id": "totem_life_+%",
+      "value": 0.0
+    },
+    {
+      "id": "trap_and_mine_throwing_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "trap_throwing_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "travel_skill_cooldown_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "triggered_spell_spell_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "unaffected_by_burning_ground",
+      "value": 0.0
+    },
+    {
+      "id": "unaffected_by_chilled_ground",
+      "value": 0.0
+    },
+    {
+      "id": "unaffected_by_shocked_ground",
+      "value": 0.0
+    },
+    {
+      "id": "unique_gain_onslaught_when_hit_duration_ms",
+      "value": 0.0
+    },
+    {
+      "id": "vaal_skill_critical_strike_chance_+%",
+      "value": 0.0
+    },
+    {
+      "id": "vaal_skill_damage_+%",
+      "value": 0.0
+    },
+    {
+      "id": "vaal_skill_effect_duration_+%",
+      "value": 0.0
+    },
+    {
+      "id": "vitality_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "vitality_mana_reservation_efficiency_-2%_per_1",
+      "value": 0.0
+    },
+    {
+      "id": "vulnerability_curse_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "wand_accuracy_rating_+%",
+      "value": 0.0
+    },
+    {
+      "id": "wand_attack_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "wand_critical_strike_multiplier_+",
+      "value": 0.0
+    },
+    {
+      "id": "warcry_empowers_next_x_melee_attacks",
+      "value": 0.0
+    },
+    {
+      "id": "warcry_speed_+%",
+      "value": 0.0
+    },
+    {
+      "id": "watchstone_uses_remaining",
+      "value": 0.0
+    },
+    {
+      "id": "wrath_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "wrath_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "zealotry_aura_effect_+%",
+      "value": 0.0
+    },
+    {
+      "id": "zealotry_mana_reservation_efficiency_+%",
+      "value": 0.0
+    },
+    {
+      "id": "zero_chaos_resistance",
+      "value": 0.0
+    },
+    {
+      "id": "zombie_damage_+%",
+      "value": 0.0
+    }
+  ]
+}

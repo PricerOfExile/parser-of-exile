@@ -33,6 +33,9 @@ public class FrontItemParser {
 
         DumpedItem dumpedItem = DumpedItem.builder()
                 .identified(true)
+                .socket("N")
+                .influences(Influences.builder().build())
+                .qualities(new Qualities(0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
                 .valuatedStats(defaultValuatedStats)
                 .build();
 
