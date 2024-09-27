@@ -11,9 +11,16 @@
         <relativePath/>
     </parent>
 
-    <groupId>org.example</groupId>
-    <artifactId>poeai</artifactId>
+    <groupId>parser-of-exile</groupId>
+    <artifactId>parser-of-exile</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>parser-of-exile-api</module>
+        <module>parser-of-exile-core</module>
+        <module>parser-of-exile-command-line</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -51,15 +58,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.apache.httpcomponents.client5</groupId>
-            <artifactId>httpclient5</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

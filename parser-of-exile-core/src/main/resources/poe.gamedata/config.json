@@ -1,0 +1,57 @@
+{
+    "patch": "3.25.1.1.3",
+    "files": [
+      "Metadata/StatDescriptions/stat_descriptions.txt"
+    ],
+    "translations": ["English"],
+    "tables": [
+      {
+        "name": "Stats",
+        "columns": [
+          "Id"
+        ]
+      },
+      {
+        "name": "Tags",
+        "columns": [
+          "Id"
+        ]
+      },
+      {
+        "name": "ModFamily",
+        "columns": [
+          "Id"
+        ]
+      },
+      {
+        "name": "ModType",
+        "columns": [
+          "Name"
+        ]
+      },
+      {
+        "name": "Mods",
+         "columns": [
+            "Id",
+            "ModTypeKey",
+            "Domain",
+            "Name",
+            "GenerationType",
+            "StatsKey1",
+            "StatsKey2",
+            "StatsKey3",
+            "StatsKey4",
+            "StatsKey5",
+            "StatsKey6",
+            "SpawnWeight_TagsKeys",
+            "SpawnWeight_Values",
+            "Families",
+           "TagsKeys",
+           "GenerationWeight_TagsKeys",
+           "CraftingItemClassRestrictions",
+           "InfluenceTypes",
+           "ImplicitTagsKeys"
+          ]
+      }
+    ]
+  }
