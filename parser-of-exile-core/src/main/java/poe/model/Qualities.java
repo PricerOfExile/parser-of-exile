@@ -1,8 +1,6 @@
-package poe.publicstash.model;
+package poe.model;
 
-import java.text.DecimalFormat;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -17,28 +15,6 @@ public record Qualities(int attack,
                         int resistance,
                         int speed
 ) {
-    private static final DecimalFormat PERCENT_FORMAT = new DecimalFormat("+##%");
-
-    public static Qualities from(List<ItemProperty> properties) {
-        return Optional.ofNullable(properties)
-                .orElse(List.of())
-                .stream()
-                .map(property -> QualityType.fromLabel(property.name())
-                        .map(type -> {
-                            try {
-                                var parse = PERCENT_FORMAT.parse((String) property.values().get(0).get(0));
-                                return type.qualityFactory.apply((int) (100 * parse.doubleValue()));
-                            } catch (Exception e) {
-                                //throw new RuntimeException(e);
-                                return null;
-                            }
-                        })
-                )
-                .filter(Optional::isPresent)
-                .flatMap(Optional::stream)
-                .findFirst()
-                .orElse(new Qualities(0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-    }
 
     public static Qualities ofAttack(int value) {
         return new Qualities(value, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -80,7 +56,7 @@ public record Qualities(int attack,
         return new Qualities(0, 0, 0, 0, 0, 0, 0, 0, 0, value);
     }
 
-    private enum QualityType {
+    public enum QualityType {
 
         ATTACK("Quality (Attack Modifiers)", Qualities::ofAttack),
         ATTRIBUTE("Quality (Attribute Modifiers)", Qualities::ofAttribute),
@@ -103,10 +79,14 @@ public record Qualities(int attack,
             this.qualityFactory = qualityFactory;
         }
 
-        private static Optional<QualityType> fromLabel(String label) {
+        public static Optional<QualityType> fromLabel(String label) {
             return Arrays.stream(QualityType.values())
                     .filter(type -> type.label.equals(label))
                     .findFirst();
+        }
+
+        public Qualities buildQualities(Integer integer) {
+            return qualityFactory.apply(integer);
         }
     }
 }

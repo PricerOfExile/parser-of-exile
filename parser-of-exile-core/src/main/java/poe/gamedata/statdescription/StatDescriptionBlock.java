@@ -52,7 +52,7 @@ class StatDescriptionBlock {
             return nbOfText.equals(descriptions.size());
         }
 
-        public StatDescriptionBlock build() {
+        StatDescriptionBlock build() {
             if (descriptions.size() != nbOfText) {
                 throw new IllegalStateException("Build cannot be called not enough descriptions.");
             }

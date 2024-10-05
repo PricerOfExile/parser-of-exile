@@ -1,5 +1,7 @@
 package poe.publicstash.model;
 
+import poe.model.Price;
+
 public record PricedItem(Item item,
                          Price price) {
 

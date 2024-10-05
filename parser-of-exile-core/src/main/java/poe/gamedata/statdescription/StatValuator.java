@@ -1,14 +1,16 @@
 package poe.gamedata.statdescription;
 
 import jakarta.annotation.Nonnull;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Slf4j
 @Service
 public class StatValuator {
+
+    private static final Logger logger = LoggerFactory.getLogger(StatValuator.class);
 
     private final List<StatDescription> statDescriptions;
 
@@ -31,9 +33,8 @@ public class StatValuator {
                 && !descriptionLine.contains("Tower")
                 // Note: Expected Lines we don't have to parse : data quality ?
                 && !descriptionLine.startsWith("Suffix")
-                && !descriptionLine.startsWith("Prefix")
-        ) {
-            log.error(descriptionLine);
+                && !descriptionLine.startsWith("Prefix")) {
+            logger.error(descriptionLine);
         }
         return valuatedStats;
     }

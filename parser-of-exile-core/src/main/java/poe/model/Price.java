@@ -1,4 +1,4 @@
-package poe.publicstash.model;
+package poe.model;
 
 import java.util.Optional;
 import java.util.regex.Pattern;

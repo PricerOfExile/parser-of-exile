@@ -2,6 +2,7 @@ package poe.publicstash.model;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import poe.model.Price;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

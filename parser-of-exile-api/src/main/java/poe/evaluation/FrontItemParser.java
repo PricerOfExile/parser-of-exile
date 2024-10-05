@@ -1,14 +1,15 @@
 package poe.evaluation;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import jakarta.annotation.Nonnull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import poe.gamedata.statdescription.StatCatalog;
 import poe.gamedata.statdescription.StatValuator;
 import poe.gamedata.statdescription.ValuatedStat;
-import poe.publicstash.model.DumpedItem;
-import poe.publicstash.model.Influences;
-import poe.publicstash.model.Qualities;
+import poe.model.Influences;
+import poe.model.ModelItem;
+import poe.model.Qualities;
 
 import java.util.Comparator;
 import java.util.Objects;
@@ -16,14 +17,22 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
-@Slf4j
-@RequiredArgsConstructor
 public class FrontItemParser {
 
+    private static final Logger logger = LoggerFactory.getLogger(FrontItemParser.class);
+
+    @Nonnull
     private final StatValuator statValuator;
+    @Nonnull
     private final StatCatalog statCatalog;
 
-    public DumpedItem execute(String itemFromFront){
+    public FrontItemParser(@Nonnull StatValuator statValuator,
+                           @Nonnull StatCatalog statCatalog) {
+        this.statValuator = statValuator;
+        this.statCatalog = statCatalog;
+    }
+
+    public ModelItem execute(String itemFromFront) {
 
         var lines = itemFromFront.split(System.lineSeparator());
         var statDtos = statCatalog.findAllNonUniqueAndAccessoryRelated();
@@ -31,7 +40,7 @@ public class FrontItemParser {
                 .map(statDto -> new ValuatedStat(statDto.id(), 0.))
                 .toList();
 
-        DumpedItem dumpedItem = DumpedItem.builder()
+        ModelItem dumpedItem = ModelItem.builder()
                 .identified(true)
                 .socket("N")
                 .influences(Influences.builder().build())
@@ -40,7 +49,7 @@ public class FrontItemParser {
                 .build();
 
         for (String line : lines) {
-            DumpedItem.DumpedItemBuilder builder = dumpedItem.toBuilder();
+            ModelItem.ModelItemBuilder builder = dumpedItem.toBuilder();
             processLine(line, builder, dumpedItem);
             dumpedItem = builder.build();
         }
@@ -48,7 +57,7 @@ public class FrontItemParser {
         return dumpedItem;
     }
 
-    private void processLine(String line, DumpedItem.DumpedItemBuilder builder, DumpedItem dumpedItem) {
+    private void processLine(String line, ModelItem.ModelItemBuilder builder, ModelItem dumpedItem) {
         extractRarity(line, builder);
         extractItemLevel(line, builder);
         extractRequiredLevel(line, builder);
@@ -59,91 +68,91 @@ public class FrontItemParser {
         extractMods(line, dumpedItem, builder);
     }
 
-    private static void extractQualities(String line, DumpedItem.DumpedItemBuilder builder) {
+    private static void extractQualities(String line, ModelItem.ModelItemBuilder builder) {
         //Qualities
         if (line.startsWith("Quality (Attack Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Attack Modifiers): {}", quality);
+            logger.info(" We got Quality (Attack Modifiers): {}", quality);
             builder.qualities(Qualities.ofAttack(quality)).build();
         }
         if (line.startsWith("Quality (Attribute Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Attribute Modifiers): {}", quality);
+            logger.info(" We got Quality (Attribute Modifiers): {}", quality);
             builder.qualities(Qualities.ofAttribute(quality)).build();
         }
         if (line.startsWith("Quality (Caster Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Caster Modifiers): {}", quality);
+            logger.info(" We got Quality (Caster Modifiers): {}", quality);
             builder.qualities(Qualities.ofCaster(quality)).build();
         }
         if (line.startsWith("Quality (Critical Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Critical Modifiers) {}", quality);
+            logger.info(" We got Quality (Critical Modifiers) {}", quality);
             builder.qualities(Qualities.ofCritical(quality)).build();
         }
         if (line.startsWith("Quality (Defence Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Defence Modifiers) {}", quality);
+            logger.info(" We got Quality (Defence Modifiers) {}", quality);
             builder.qualities(Qualities.ofDefense(quality)).build();
         }
         if (line.startsWith("Quality (Elemental Damage Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Elemental Damage Modifiers) {}", quality);
+            logger.info(" We got Quality (Elemental Damage Modifiers) {}", quality);
             builder.qualities(Qualities.ofElementalDamage(quality)).build();
         }
         if (line.startsWith("Quality (Life and Mana Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Life and Mana Modifiers) {}", quality);
+            logger.info(" We got Quality (Life and Mana Modifiers) {}", quality);
             builder.qualities(Qualities.ofLifeAndMana(quality)).build();
         }
         if (line.startsWith("Quality (Physical and Chaos Damage Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Physical and Chaos Damage Modifiers) {}", quality);
+            logger.info(" We got Quality (Physical and Chaos Damage Modifiers) {}", quality);
             builder.qualities(Qualities.ofPhysicalAndChaos(quality)).build();
         }
         if (line.startsWith("Quality (Resistance Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Resistance Modifiers) {}", quality);
+            logger.info(" We got Quality (Resistance Modifiers) {}", quality);
             builder.qualities(Qualities.ofResistance(quality)).build();
         }
         if (line.startsWith("Quality (Speed Modifiers)")) {
             int quality = Integer.parseInt(line.replaceAll("\\D+", ""));
-            log.info(" We got Quality (Speed Modifiers) {}", quality);
+            logger.info(" We got Quality (Speed Modifiers) {}", quality);
             builder.qualities(Qualities.ofSpeed(quality)).build();
         }
         //END Qualities
     }
 
-    private static void extractBooleans(String line, DumpedItem.DumpedItemBuilder builder) {
+    private static void extractBooleans(String line, ModelItem.ModelItemBuilder builder) {
         //Booleans
         if (line.contains("Fractured Item")) {
-            log.info(" We got fractured boolean ");
+            logger.info(" We got fractured boolean ");
             builder.fractured(true).build();
         }
         if (line.contains("Synthesised Item")) {
-            log.info(" We got Synthesised boolean ");
+            logger.info(" We got Synthesised boolean ");
             builder.synthesised(true).build();
         }
         if (line.contains("Duplicated Item")) {
-            log.info(" We got Duplicated boolean ");
+            logger.info(" We got Duplicated boolean ");
             builder.duplicated(true).build();
         }
         if (line.contains("Split Item")) {
-            log.info(" We got Split boolean ");
+            logger.info(" We got Split boolean ");
             builder.split(true).build();
         }
         if (line.contains("Corrupted Item")) {
-            log.info(" We got Corrupted boolean ");
+            logger.info(" We got Corrupted boolean ");
             builder.corrupted(true).build();
         }
         if (line.contains("Unidentified")) {
-            log.info(" We got Unidentified boolean ");
+            logger.info(" We got Unidentified boolean ");
             builder.identified(false).build();
         }
         //END Booleans
     }
 
-    private static void extractInfluences(String line, DumpedItem dumpedItem, DumpedItem.DumpedItemBuilder builder) {
+    private static void extractInfluences(String line, ModelItem dumpedItem, ModelItem.ModelItemBuilder builder) {
         //Influences :
         if (line.contains("Shaper Item")) {
             if (Objects.isNull(dumpedItem.influences())) {
@@ -151,7 +160,7 @@ public class FrontItemParser {
             } else {
                 builder.influences(dumpedItem.influences().toBuilder().shaper(true).build()).build();
             }
-            log.info(" We got Shaper Influence: {}", line);
+            logger.info(" We got Shaper Influence: {}", line);
         }
         if (line.contains("Hunter Item")) {
             if (Objects.isNull(dumpedItem.influences())) {
@@ -159,7 +168,7 @@ public class FrontItemParser {
             } else {
                 builder.influences(dumpedItem.influences().toBuilder().hunter(true).build()).build();
             }
-            log.info(" We got Hunter Influence: {}", line);
+            logger.info(" We got Hunter Influence: {}", line);
         }
         if (line.contains("Elder Item")) {
             if (Objects.isNull(dumpedItem.influences())) {
@@ -167,7 +176,7 @@ public class FrontItemParser {
             } else {
                 builder.influences(dumpedItem.influences().toBuilder().elder(true).build()).build();
             }
-            log.info(" We got Elder Influence: {}", line);
+            logger.info(" We got Elder Influence: {}", line);
         }
         if (line.contains("Warlord Item")) {
             if (Objects.isNull(dumpedItem.influences())) {
@@ -175,7 +184,7 @@ public class FrontItemParser {
             } else {
                 builder.influences(dumpedItem.influences().toBuilder().warlord(true).build()).build();
             }
-            log.info(" We got Warlord Influence: {}", line);
+            logger.info(" We got Warlord Influence: {}", line);
         }
         if (line.contains("Crusader Item")) {
             if (Objects.isNull(dumpedItem.influences())) {
@@ -183,7 +192,7 @@ public class FrontItemParser {
             } else {
                 builder.influences(dumpedItem.influences().toBuilder().crusader(true).build()).build();
             }
-            log.info(" We got Crusader Influence: {}", line);
+            logger.info(" We got Crusader Influence: {}", line);
         }
         if (line.contains("Redeemer Item")) {
             if (Objects.isNull(dumpedItem.influences())) {
@@ -191,41 +200,41 @@ public class FrontItemParser {
             } else {
                 builder.influences(dumpedItem.influences().toBuilder().redeemer(true).build()).build();
             }
-            log.info(" We got redeemer Influence: {}", line);
+            logger.info(" We got redeemer Influence: {}", line);
         }
         //END Influences
     }
 
-    private static void extractSockets(String line, DumpedItem.DumpedItemBuilder builder) {
+    private static void extractSockets(String line, ModelItem.ModelItemBuilder builder) {
         if (line.contains("Sockets:")) {
-            log.info(" We got Sockets: {}", line.replace("Sockets: ", ""));
+            logger.info(" We got Sockets: {}", line.replace("Sockets: ", ""));
             builder.socket(line.replace("Sockets: ", "")).build();
         }
     }
 
-    private static void extractRequiredLevel(String line, DumpedItem.DumpedItemBuilder builder) {
+    private static void extractRequiredLevel(String line, ModelItem.ModelItemBuilder builder) {
         if (line.startsWith("Level:")) {
             var level = Integer.parseInt(line.replace("Level: ", ""));
-            log.info(" We got REQUIREMENT LEVEL: {}", level);
+            logger.info(" We got REQUIREMENT LEVEL: {}", level);
             builder.levelRequirement(level).build();
         }
     }
 
-    private static void extractItemLevel(String line, DumpedItem.DumpedItemBuilder builder) {
+    private static void extractItemLevel(String line, ModelItem.ModelItemBuilder builder) {
         if (line.startsWith("Item Level:")) {
-            log.info(" We got Item level: {}", line.replace("Item Level: ", ""));
+            logger.info(" We got Item level: {}", line.replace("Item Level: ", ""));
             builder.ilvl(Integer.parseInt(line.replace("Item Level: ", ""))).build();
         }
     }
 
-    private static void extractRarity(String line, DumpedItem.DumpedItemBuilder builder) {
+    private static void extractRarity(String line, ModelItem.ModelItemBuilder builder) {
         if (line.startsWith("Rarity:")) {
-            log.info(" We got Rarity: {}", line.replace("Rarity: ", ""));
+            logger.info(" We got Rarity: {}", line.replace("Rarity: ", ""));
             builder.rarity(line.replace("Rarity: ", "")).build();
         }
     }
 
-    private void extractMods(String line, DumpedItem dumpedItem, DumpedItem.DumpedItemBuilder builder) {
+    private void extractMods(String line, ModelItem dumpedItem, ModelItem.ModelItemBuilder builder) {
         var newStats = statValuator.valuateDisplayedMod(line).stream();
         Stream<ValuatedStat> currentStats = dumpedItem.valuatedStats().stream();
         var bothStats = Stream.concat(newStats, currentStats)

@@ -1,18 +1,16 @@
 package poe.evaluation.modelapi;
 
 import jakarta.annotation.Nonnull;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
-import poe.publicstash.model.DumpedItem;
+import poe.model.ModelItem;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.Objects;
 
-@Slf4j
 @Service
 public class PoEModelAPIClient {
 
@@ -23,10 +21,10 @@ public class PoEModelAPIClient {
         this.modelApiRestClient = modelApiRestClient;
     }
 
-    public String getAiResult(DumpedItem dumpedItem) {
+    public String getAiResult(ModelItem modelItem) {
         var bodilessEntity = modelApiRestClient.post().uri("/predict")
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(dumpedItem)
+                .body(modelItem)
                 .retrieve()
                 .toEntity(PredictionResponse.class);
         return transformResult(bodilessEntity.getBody());
@@ -50,5 +48,4 @@ public class PoEModelAPIClient {
                 .map(Map.Entry::getKey)
                 .orElse(null);
     }
-
 }
