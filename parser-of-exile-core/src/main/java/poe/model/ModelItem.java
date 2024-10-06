@@ -1,6 +1,7 @@
 package poe.model;
 
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import lombok.Builder;
 import poe.gamedata.statdescription.ValuatedStat;
 
@@ -8,8 +9,8 @@ import java.util.List;
 
 // TODO - MTI - Could we get rid of this Lombok annotation ?
 @Builder(toBuilder = true)
-public record ModelItem(@Nonnull String id,
-                        @Nonnull String rarity,
+public record ModelItem(@Nullable String id,
+                        @Nullable String rarity,
                         int ilvl,
                         boolean identified,
                         double priceInChaos,
