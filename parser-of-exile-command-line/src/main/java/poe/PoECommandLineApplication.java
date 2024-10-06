@@ -49,12 +49,13 @@ public class PoECommandLineApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         logger.info("Running application");
-        itemStreamGenerator.execute(new ItemFilters(League.NECROPOLIS, 100), items -> {
-            items.map(modelItemFactory::create)
-                    .forEach(this::writeToNewFile);
-        });
+        itemStreamGenerator.execute(
+                new ItemFilters(League.NECROPOLIS, 100),
+                items -> items.map(modelItemFactory::create)
+                        .forEach(this::writeToNewFile)
+        );
         logger.info("Done");
     }
 

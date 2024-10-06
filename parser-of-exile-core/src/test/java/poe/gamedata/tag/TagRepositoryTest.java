@@ -120,11 +120,10 @@ class TagRepositoryTest {
 
         @BeforeEach
         void before() {
-            var objectMapper = new ObjectMapper()
-                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             tagRepository = new TagRepository(
                     new ClassPathResource("/poe.gamedata/tables/English/Tags.json"),
-                    objectMapper
+                    new ObjectMapper()
+                            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             );
         }
 

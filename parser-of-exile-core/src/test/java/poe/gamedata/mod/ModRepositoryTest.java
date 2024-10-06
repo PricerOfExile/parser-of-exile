@@ -127,10 +127,11 @@ class ModRepositoryTest {
 
         @BeforeEach
         void before() {
-            var objectMapper = new ObjectMapper()
-                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            var resource = new ClassPathResource("/poe.gamedata/tables/English/Mods.json");
-            modRepository = new ModRepository(resource, objectMapper);
+            modRepository = new ModRepository(
+                    new ClassPathResource("/poe.gamedata/tables/English/Mods.json"),
+                    new ObjectMapper()
+                            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            );
         }
 
         @Test

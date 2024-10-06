@@ -31,7 +31,7 @@ public class CurrencyRepository {
 
         var currenciesDtos = parseResources(resources, objectMapper);
         var chaosEquivalentPerCurrencyIndex = currenciesDtos.stream()
-                .flatMap(currencies -> currencies.lines().stream())
+                .flatMap(currenciesDto -> currenciesDto.lines().stream())
                 .collect(Collectors.toMap(CurrencyRate::index, CurrencyRate::chaosEquivalent));
         currencies = currenciesDtos.stream()
                 .flatMap(Currencies::detailsStream)

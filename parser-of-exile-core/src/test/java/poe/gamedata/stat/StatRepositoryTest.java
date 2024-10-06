@@ -102,10 +102,11 @@ class StatRepositoryTest {
 
         @BeforeEach
         void before() {
-            var objectMapper = new ObjectMapper()
-                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            var statResource = new ClassPathResource("/poe.gamedata/tables/English/Stats.json");
-            statRepository = new StatRepository(statResource, objectMapper);
+            statRepository = new StatRepository(
+                    new ClassPathResource("/poe.gamedata/tables/English/Stats.json"),
+                    new ObjectMapper()
+                            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            );
         }
 
         @Test

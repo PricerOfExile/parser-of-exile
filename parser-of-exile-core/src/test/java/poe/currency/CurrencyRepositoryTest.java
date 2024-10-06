@@ -218,7 +218,7 @@ class CurrencyRepositoryTest {
     @Nested
     class IntegrationTest {
 
-        private static final List<String> MOST_USED_CURRENCY_TRADE_IDS = List.of(
+        public static final List<String> MOST_USED_CURRENCY_TRADE_IDS = List.of(
                 "chaos",
                 "exalted",
                 "divine",
@@ -236,12 +236,15 @@ class CurrencyRepositoryTest {
 
         @BeforeEach
         void before() throws IOException {
-            var objectMapper = new ObjectMapper()
-                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            var resources = Stream.of(ResourcePatternUtils.getResourcePatternResolver(new DefaultResourceLoader())
-                            .getResources("classpath:/poe.ninja/*.json"))
-                    .toList();
-            repository = new CurrencyRepository(resources, objectMapper);
+            var resources = Stream.of(
+                    ResourcePatternUtils.getResourcePatternResolver(new DefaultResourceLoader())
+                            .getResources("classpath:/poe.ninja/*.json")
+            ).toList();
+            repository = new CurrencyRepository(
+                    resources,
+                    new ObjectMapper()
+                            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            );
         }
 
         @ParameterizedTest

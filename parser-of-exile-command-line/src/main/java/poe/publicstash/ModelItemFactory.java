@@ -5,8 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import poe.currency.CurrencyRepository;
-import poe.gamedata.statdescription.StatCatalog;
-import poe.gamedata.statdescription.StatValuator;
+import poe.gamedata.statdescription.AccessoryStatCatalog;
+import poe.gamedata.statdescription.AccessoryStatValuator;
 import poe.gamedata.statdescription.ValuatedStat;
 import poe.model.ModelItem;
 import poe.model.Influences;
@@ -30,18 +30,18 @@ public class ModelItemFactory {
     private static final DecimalFormat PERCENT_FORMAT = new DecimalFormat("+##%");
 
     @Nonnull
-    private final StatValuator statValuator;
+    private final AccessoryStatValuator accessoryStatValuator;
     @Nonnull
     private final CurrencyRepository currencyRepository;
     @Nonnull
     private final List<ValuatedStat> defaultValuatedStats;
 
-    public ModelItemFactory(@Nonnull StatValuator statValuator,
+    public ModelItemFactory(@Nonnull AccessoryStatValuator accessoryStatValuator,
                             @Nonnull CurrencyRepository currencyRepository,
-                            @Nonnull StatCatalog statCatalog) {
-        this.statValuator = statValuator;
+                            @Nonnull AccessoryStatCatalog accessoryStatCatalog) {
+        this.accessoryStatValuator = accessoryStatValuator;
         this.currencyRepository = currencyRepository;
-        this.defaultValuatedStats = statCatalog.findAllNonUniqueAndAccessoryRelated().stream()
+        this.defaultValuatedStats = accessoryStatCatalog.findAllNonUniqueAndAccessoryRelated().stream()
                 .map(statDto -> new ValuatedStat(statDto.id(), 0.))
                 .toList();
     }
@@ -49,7 +49,7 @@ public class ModelItemFactory {
     public ModelItem create(PricedItem item) {
         try {
             var computedStats = item.item().mods().stream()
-                    .map(statValuator::valuateDisplayedMod)
+                    .map(accessoryStatValuator::valuateDisplayedMod)
                     .flatMap(List::stream)
                     .toList();
             var collected = Stream.concat(defaultValuatedStats.stream(), computedStats.stream())
@@ -82,7 +82,7 @@ public class ModelItemFactory {
                     item.item().duplicated(),
                     item.item().split(),
                     item.item().corrupted(),
-                    this.from(item.item().properties()),
+                    ModelItemFactory.from(item.item().properties()),
                     collected
             );
         } catch (Exception e) {
@@ -101,7 +101,7 @@ public class ModelItemFactory {
                                 var parse = PERCENT_FORMAT.parse((String) property.values().get(0).get(0));
                                 return type.buildQualities((int) (100 * parse.doubleValue()));
                             } catch (Exception e) {
-                                //throw new RuntimeException(e);
+                                logger.warn("Cannot properly parse quantity {}", property, e);
                                 return null;
                             }
                         })

@@ -3,6 +3,7 @@ package poe.gamedata.statdescription;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO : Rewrite this to be immutable instead
 class StatDescriptionBlockParser {
 
     private final List<StatDescriptionBlock> descriptionBlocks;
@@ -14,6 +15,10 @@ class StatDescriptionBlockParser {
     public StatDescriptionBlockParser() {
         this.state = StatDescriptionGathererState.WAIT_STARTING_BLOCK;
         this.descriptionBlocks = new ArrayList<>();
+    }
+
+    public StatDescriptionGathererState getState() {
+        return state;
     }
 
     public StatDescriptionBlockParser parse(String line) {
@@ -28,7 +33,6 @@ class StatDescriptionBlockParser {
     }
 
     public List<StatDescriptionBlock> close() {
-        endDescriptionBlock();
         this.state = StatDescriptionGathererState.CLOSED;
         return descriptionBlocks;
     }
@@ -53,6 +57,7 @@ class StatDescriptionBlockParser {
     private void endDescriptionBlock() {
         this.state = StatDescriptionGathererState.WAIT_STARTING_BLOCK;
         this.descriptionBlocks.add(this.current.build());
+        this.current = null;
     }
 
     private void waitingForStartingBlock(String line) {
@@ -62,7 +67,7 @@ class StatDescriptionBlockParser {
         }
     }
 
-    private enum StatDescriptionGathererState {
+    public enum StatDescriptionGathererState {
         WAIT_STARTING_BLOCK,
         WAIT_STAT_ID_LIST,
         WAIT_DESCRIPTIONS_NUMBER,
